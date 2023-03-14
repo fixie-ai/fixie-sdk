@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="API and SDK documentation for Fixie">
+    
+    <link rel="canonical" href="https://fixie.ai/architecture/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    
+    <title>Architecture - Fixie Developer Portal</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../css/base.min.css" rel="stylesheet">
+    <link href="../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+    <link href="../assets/_mkdocstrings.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="..">Fixie Developer Portal</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Introduction</a>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">Architecture</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Agents <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../agent-quickstart/">Agent QuickStart</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../agents/">Fixie Agent API</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../agent-protocol/">Agent Protocol</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python SDK <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../python-client-api/">Python Client API</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../python-agent-api/">Python Agent API</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../cli/">CLI</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="https://app.fixie.ai/static/docs/index.html">GraphQL</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="..">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../agent-quickstart/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/fixie-ai/fixie-sdk">fixie-ai/fixie-sdk</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#fixie-architecture-overview">Fixie Architecture Overview</a></li>
+        <li class="first-level "><a href="#system-overview">System overview</a></li>
+            <li class="second-level"><a href="#graphql-api">GraphQL API</a></li>
+                
+        <li class="first-level "><a href="#example-query-flow">Example query flow</a></li>
+        <li class="first-level "><a href="#query-message-format">Query message format</a></li>
+        <li class="first-level "><a href="#creating-an-agent">Creating an Agent</a></li>
+            <li class="second-level"><a href="#fully-custom-agents">Fully custom Agents</a></li>
+                
+            <li class="second-level"><a href="#code-shot-agents">Code Shot Agents</a></li>
+                
+            <li class="second-level"><a href="#registering-an-agent">Registering an Agent</a></li>
+                
+        <li class="first-level "><a href="#authentication">Authentication</a></li>
+        <li class="first-level "><a href="#usage-limits">Usage limits</a></li>
+        <li class="first-level "><a href="#user-storage">User Storage</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="fixie-architecture-overview">Fixie Architecture Overview</h1>
+<p>This page provides a technical overview of the Fixie platform, specifically focusing on the programming model used to build applications with Fixie.</p>
+<h1 id="system-overview">System overview</h1>
+<p>The diagram below is a high level sketch of the Fixie platform.</p>
+<p><img alt="architecture.png" src="../assets/architecture.png" /></p>
+<p>The Fixie system consists of a cloud-hosted API (app.fixie.ai) which
+provides a GraphQL-based API endpoint to clients, and a set of
+Agents that each have a specific set of skills, such as accessing
+a remote API, pulling data from a database, summarizing text, and
+so forth.</p>
+<p>The core Fixie service runs on the cloud or on-prem in a customers
+environment. Agents can run anywhere: Hosted by Fixie, hosted by a
+customer, or hosted by third parties. Each Agent is its own independent
+microservice. Fixie's Agent registry maintains metadata about each
+agent, including its description, owner information, and the URL
+on which messages can be sent to the Agent.</p>
+<h2 id="graphql-api">GraphQL API</h2>
+<p>The Fixie GraphQL API allows clients to interact with the system in a number of ways:</p>
+<ul>
+<li>Query the set of Agents in the system, returning metadata about
+each Agent such as the name, owner, set of example queries that the
+Agent supports, etc.</li>
+<li>Register a new agent (described in the Creating an Agent section below).</li>
+<li>Create, list, and delete Sessions. A Session can be thought of as a chat session with
+the Fixie system, between the client and one or more Agents.</li>
+<li>Post a Message to a Session, which sends a new query to Fixie for processing by the system.</li>
+<li>Retrieve the Messages in a Session, including those Messages sent by Agents.</li>
+</ul>
+<h1 id="example-query-flow">Example query flow</h1>
+<p>To illustrate the system working end-to-end, lets walk through what
+happens when a client issues a query, such as <code>"Schedule a 30-minute
+meeting with Zach sometime between now and next Tuesday"</code>.</p>
+<p>The red circled numbers on the diagram above refer to each of the steps below.</p>
+<ol>
+<li>The client issues the query by posting a message to a Session,
+via the GraphQL API (or, equivalently, via the web playground).</li>
+<li>The Session Runner dispatches the users query to the Fixie Agent.
+The Fixie Agent is the first Agent in the query sequence, and is
+responsible for taking the users query, breaking it into steps, and
+dispatching it out to one or more Agents for processing of those
+steps. Think of the Fixie Agent as a virtual machine that runs the
+program specified by the users query. The Session Runner is responsible
+for maintaining the running chat log of the session, and providing
+this context to the Fixie Agent. For example, if the following query
+were something vague, like <code>"When is it?"</code>, the Fixie Agent could
+disambiguate this to mean <code>"When is the meeting that you just
+scheduled?"</code> based on the session history provided by the Session
+Runner.</li>
+<li>For each step in the program, the Fixie Agent calls out
+to the Router Agent to determine which Agent(s) need to be invoked
+to run that step of the query. </li>
+<li>The Router Agent consults the Agent Registry, which contains metadata</li>
+<li>about each Agent, including the Agents name, owner, and (critically)</li>
+<li>the sample queries that the Agent can support. For example, the</li>
+<li>GitHub agent can support a
+wide range of queries about GitHub-related things, such as <code>"How
+many pull requests are open in fixie-ai/fixie?"</code>. When an Agent is
+registered with the system, it stores its sample queries in the
+registry, which the Router Agent uses to determine which queries
+should be routed to that Agent.</li>
+<li>The Router determines which
+Agent to send the query to by using a neural search that maps the
+users query into a high-dimensional embedding space, and compares
+it to the sample queries for each of the Agents in the system. The
+Router sends the users query to the Agent that most closely matches
+the sample queries for that Agent.</li>
+<li>The Agent (in this case,
+perhaps the Google Calendar Agent) gets the query and executes it.
+This is typically done by using a large language model such as GPT-3
+to interpret the query and invoke one or more external systems to
+generate a response. In the case of the example query given above,
+this would entail querying the users own calendar for available
+time slots, querying Zachs calendar for available time slots, finding
+a suitable time that works for both parties, and then scheduling
+the meeting. Well describe this process in more detail in the Agent
+Execution section below.</li>
+<li>Finally, the response from the Agent
+is returned up the chain back to the Fixie Agent, which may decide
+to compose and send a final response to the user, or invoke other
+steps of the program involving other Agents. The response message
+is stored in the Session associated with this query, as well as
+returned to the client application. (The response path is not shown
+on the diagram for sake of simplicity.)</li>
+</ol>
+<h1 id="query-message-format">Query message format</h1>
+<p>Queries in Fixie consist of two parts: A plain-text Message along with zero or more Embeds.
+Concretely, a query message in Fixie is a JSON object that might contain:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mask out the background in #1&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;embeds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;content_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;uri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://app.fixie.ai/attachment/21cfa1...&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+
+<p>An Embed is very much like an email attachment: it is a binary
+object with an associated MIME type, such as <code>image/png</code> or
+<code>text/plain</code>, that is carried along with the query. Agents can
+access the Embeds associated with the query, and optionally create
+new Embeds that represent the result of some data processing or
+generation. As an example, the DALL-E and Stable Diffusion Agents
+both create Embeds for the images they generate. The Masker agent
+takes an image Embed and generates a binary mask representing
+portions of the image that contain a given object or material
+(e.g.,whatever is in the background of the image).</p>
+<p>Embeds are immutable once created. They are stored in a Fixie-managed
+cloud storage bucket, and are passed by reference (specifically,
+using a signed URL) along with the query.</p>
+<p>The text of the query can refer to an Embed using its key in the
+message. In the above example, the Embed key is <code>1</code>, and the query
+refers to it using <code>#1</code>.</p>
+<h1 id="creating-an-agent">Creating an Agent</h1>
+<p>A Fixie Agent is just a program that accepts a query (text with
+optional embeds) in the format shown above, and returns a reply in
+the same format. An Agent can run anywhere on the Internet; Fixie
+only needs to know the URL to post the query message to over HTTP.
+The simplest possible Agent, implemented in Python, might look like
+this:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">agent</span><span class="p">():</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span>
+        <span class="n">embeds</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="p">[</span><span class="s2">&quot;embeds&quot;</span><span class="p">]</span>
+        <span class="c1"># Do something with the query...</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello, world!&quot;</span><span class="p">}</span>
+</code></pre></div>
+
+<p>That’s it! Sending a POST request to the Agent’s URL will return a reply <code>"Hello, world!"</code>.</p>
+<p>Of course, most Fixie Agents will want to use a large language model to process incoming
+queries and generate responses. There are two ways of doing this in Fixie.</p>
+<h2 id="fully-custom-agents">Fully custom Agents</h2>
+<p>An Agent can essentially do anything it likes with the input query.
+The most common pattern here is to directly call a Large Language
+Model. on its own, e.g., via the OpenAI GPT-3 API. Fixie is agnostic
+as to how the Agent performs its query processing; it could use
+GPT-3, a fine-tuned variant like InstructGPT, or a fully custom
+model provided by the Agent developer or a third party. Libraries
+like <a href="https://github.com/hwchase17/langchain">LangChain</a> are sometimes
+helpful in interfacing the LLM to external code.</p>
+<p>Instead of using an LLM directly, an Agent can also just be a simple
+wrapper around a third party AI-powered service that can perform
+tasks such as text summarization, text generation, search, etc.
+Building an Agent that wraps, for example, <a href="http://Jasper.ai">Jasper.ai</a>,
+Instructive.ai, or <a href="http://Copy.ai">Copy.ai</a> is quite easy to do.
+The benefit of this approach is that those siloed products suddenly
+become interconnected and composable with the rest of the capabilities
+in the Fixie ecosystem.</p>
+<h2 id="code-shot-agents">Code Shot Agents</h2>
+<p>In addition to the roll your own approach with custom Agents, Fixie
+provides a novel programming model for building Agents that we call
+<strong>Code Shots</strong>. In Large Language Models, the term few shots refers to
+a set of examples that can be provided to the model that instructs
+it to perform a specific task. Code Shots are essentially few shots
+enhanced with embedded code.</p>
+<p>This is probably best understood through an example. The following
+Code Shots manifest creates an Agent that understands how to translate
+English queries into stock price lookups:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">fixieai</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">BASE_PROMPT</span> <span class="o">=</span> <span class="s2">&quot;I am an Agent that answers questions about stock prices.&quot;</span>
+
+<span class="n">FEW_SHOTS</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;Q: What is the current price for SYMBOL?</span>
+<span class="s2">Ask Func[quote]: SYMBOL</span>
+<span class="s2">Func[quote] says: $123.45</span>
+<span class="s2">A: The current price for SYMBOL is $123.45.</span>
+
+<span class="s2">Q: SYMBOL share price</span>
+<span class="s2">Ask Func[quote]: SYMBOL</span>
+<span class="s2">Func[quote] says: $34.52</span>
+<span class="s2">A: The share price for SYMBOL is $34.52.</span>
+
+<span class="s2">Q: Price for SYMBOL</span>
+<span class="s2">Ask Func[quote]: SYMBOL</span>
+<span class="s2">Func[quote] says: $99.11</span>
+<span class="s2">A: The share price for SYMBOL is $99.11</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">fixieai</span><span class="o">.</span><span class="n">CodeShotAgent</span><span class="p">(</span><span class="n">BASE_PROMPT</span><span class="p">,</span> <span class="n">FEW_SHOTS</span><span class="p">)</span>
+
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;...&quot;</span>
+
+<span class="nd">@agent</span><span class="o">.</span><span class="n">register_func</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">quote</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
+    <span class="n">symbol</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">text</span>
+    <span class="n">url</span> <span class="o">=</span>  <span class="sa">f</span><span class="s2">&quot;https://www.alphavantage.co/query?function=GLOBAL_QUOTE&amp;apikey=</span><span class="si">{</span><span class="n">API_KEY</span><span class="si">}</span><span class="s2">&amp;symbol=</span><span class="si">{</span><span class="n">symbol</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">raw_price</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;Global Quote&quot;</span><span class="p">][</span><span class="s2">&quot;05. price&quot;</span><span class="p">]</span>
+    <span class="n">dot</span> <span class="o">=</span> <span class="n">raw_price</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">raw_price</span><span class="p">[:</span><span class="n">dot</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="n">agent</span><span class="o">.</span><span class="n">serve</span><span class="p">(</span><span class="s2">&quot;stockquote&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>This is the entire code for the stock quote Agent. The code
+manifest consists of a set of few-shot examples (example queries
+and responses), coupled with a little bit of Python code that knows
+how to invoke an external API to fetch a stock quote.</p>
+<p>With Code Shots, the Agents functionality is partitioned across two
+domains: the language processing (done centrally, by Fixie), and
+the low-level Func invocations (done within the Agent's own sandbox,
+either in the customers infrastructure or within an environment
+that is hosted by us). Because a Func does not need to
+perform any language processing, it is just a simple function!</p>
+<p>Let’s walk through what happens when a query comes into a Code Shot Agent.</p>
+<ol>
+<li>The Agent gets a query like <code>"What is the stock price for GOOG?"</code></li>
+<li>Fixie takes the users query, along with the few-shot examples
+in the Code Shots manifest, and passes them to a LLM for processing.
+Note that this language processing is being done centrally, by
+Fixie, meaning we can automatically select the best LLM and prompt
+to handle the query, as well as augment the prompt with relevant
+context and session history.  3. In this case, the output of the
+LLM will be something like <code>Ask Func[quote]: GOOG</code>. This is basically
+saying that Fixie needs to invoke this low-level Func to perform
+the next step of processing.  Fixie invokes the Func by sending a
+REST call over HTTP to the Agents URL, and getting back the response.</li>
+<li>Fixie then feeds the Funcs response back into the LLM, again
+with the appropriate prompt and context, to continue processing the
+query. In this case, the LLM will generate a response like <code>"A: The
+share price for GOOG is $105.22"</code>.  5. The final reply is sent back
+to the client, or the Agent that issued the original query.</li>
+</ol>
+<p>There are a few key things to note about Code Shots.</p>
+<ul>
+<li>First, they make it really easy to build new Agents, since the
+only thing the developer needs to do is write a few English-language
+examples of what the Agent does, along with, possibly, one or more
+simple Funcs that hook into the query processing logic.</li>
+<li>Second, Funcs need not be private to individual Agents: We are building an
+entire library of Funcs that Agents can use, including Funcs that
+evaluate simple computational expressions, fetch data over HTTP,
+and so forth. Many Agents can be built without implementing any new
+Funcs, just by calling existing ones.</li>
+</ul>
+<h2 id="registering-an-agent">Registering an Agent</h2>
+<p>Fixie users can create and register their own Agents in the system
+either via the GraphQL API or through the web interface. The only
+thing needed to create an Agent is to give it a name, a short
+description of what it does, and a URL to which Agent queries should
+be sent.</p>
+<h1 id="authentication">Authentication</h1>
+<p>Fixie ensures that all requests flowing through the system are
+associated with an end user. A user can get a Fixie account by
+visiting the web UI (https://app.fixie.ai) and signing up using
+email, a Google account, or a GitHub account. To access the Fixie
+GraphQL API, the user can get an API key from their profile page
+on the site.</p>
+<p>The API key must be provided in an <code>Authorization: Bearer</code> header
+when making API calls. The API key itself is a JWT, signed by the
+Fixie service, that identifies the user associated with the query.</p>
+<p>When Fixie sends a request to an Agent, the request carries with
+it a JWT (again, signed by Fixie) that identifies the user and the
+chat session ID. The Agent can verify that an incoming query is in
+fact coming from Fixie by checking the signature of this JWT. When
+the Agent wishes to send a query to another Agent, or invoke one
+of the API endpoints provided by Fixie, it must provide this JWT
+to prove that the request is being made in the context of an actual
+user query.</p>
+<h1 id="usage-limits">Usage limits</h1>
+<p>Fixie imposes generous usage limits on individual users and Agents
+to prevent abuse. We currently have a per-user daily limit of 1000
+queries. If this turns out not to be adequate we can raise the limit
+or allow users to purchase additional credits. Agents invoking Fixie
+APIs, such as the User Storage mechanism described below, also have
+a rate limit on those calls. Code Shot Agents that use Fixies
+language processing capabilities will additionally have a limit on
+the number of tokens they can pass through the Fixie-provided LLM
+API in a given time period.</p>
+<h1 id="user-storage">User Storage</h1>
+<p>Agents often need to maintain state associated with a given user
+or chat session in which they are involved. While Agents could
+simply implement their own mechanism for this (e.g., writing data
+to a database or a cloud storage bucket), we provide a simple API
+in Fixie for this purpose. Fixies User Storage component is a simple
+key-value store, allowing Agents to store and retrieve binary blobs
+associated with an Agent-provided key. This is akin to cookies in
+a browser context, allowing Agents to stash away information that
+they might need to access later.</p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = ".."</script>
+    
+    <script src="../js/base.js"></script>
+    <script src="../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="API and SDK documentation for Fixie">
+    
+    <link rel="canonical" href="https://fixie.ai/agents/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    
+    <title>Fixie Agent API - Fixie Developer Portal</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../css/base.min.css" rel="stylesheet">
+    <link href="../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+    <link href="../assets/_mkdocstrings.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="..">Fixie Developer Portal</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Introduction</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../architecture/">Architecture</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Agents <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../agent-quickstart/">Agent QuickStart</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Fixie Agent API</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../agent-protocol/">Agent Protocol</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python SDK <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../python-client-api/">Python Client API</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../python-agent-api/">Python Agent API</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../cli/">CLI</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="https://app.fixie.ai/static/docs/index.html">GraphQL</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../agent-quickstart/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../agent-protocol/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/fixie-ai/fixie-sdk">fixie-ai/fixie-sdk</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#developing-a-fixie-agent">Developing a Fixie Agent</a></li>
+            <li class="second-level"><a href="#codeshotagent">CodeShotAgent</a></li>
+                
+            <li class="second-level"><a href="#agent-funcs">Agent Funcs</a></li>
+                
+            <li class="second-level"><a href="#built-in-functions">Built-in functions</a></li>
+                
+            <li class="second-level"><a href="#embeds">Embeds</a></li>
+                
+            <li class="second-level"><a href="#user-storage">User Storage</a></li>
+                
+                <li class="third-level"><a href="#user-storage-example">User Storage Example</a></li>
+            <li class="second-level"><a href="#agent-oauth-support">Agent OAuth Support</a></li>
+                
+                <li class="third-level"><a href="#oauth-example">OAuth Example</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="developing-a-fixie-agent">Developing a Fixie Agent</h1>
+<p>The Fixie platform allows you to build Agents in any language of your choice, by writing
+a service that conforms to the protocol described in <a href="../agent-protocol/">Agent Protocol</a>.
+For Python developers, we provide a Python library that makes it easy to implement Agents
+using the API described below.</p>
+<p>For a quick start on building your own Fixie Agent, check out the <a href="../agent-quickstart/">Quick Start</a> guide.</p>
+<p>See <a href="../python-agent-api/">Fixie Agent Python API</a> for the full API reference.</p>
+<h2 id="codeshotagent">CodeShotAgent</h2>
+<p>The base class for Agents in Fixie is [<code>CodeShotAgent</code>][fixieai.agents.code_shot. CodeShotAgent].
+This class takes care of communicating with the Fixie platform via the <a href="../agent-protocol/">Agent Protocol</a>, 
+and provides a simple API for registering functions that can be invoked by the few-shot examples
+used by the Agent.</p>
+<p>The structure of a <code>CodeShotAgent</code> is typically as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">fixieai</span>
+
+<span class="n">BASE_PROMPT</span> <span class="o">=</span> <span class="s2">&quot;Base prompt for the agent.&quot;</span>
+<span class="n">FEW_SHOTS</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Q: Example query for the Agent</span>
+<span class="s2">Ask Func[my_func]: query to the func</span>
+<span class="s2">Func[my_func] says: response to the query</span>
+<span class="s2">A: Response generated by the Agent</span>
+
+<span class="s2">Q: Second example query to the agent</span>
+<span class="s2">A: Second response generated by the Agent</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">fixieai</span><span class="o">.</span><span class="n">CodeShotAgent</span><span class="p">(</span><span class="n">BASE_PROMPT</span><span class="p">,</span> <span class="n">FEW_SHOTS</span><span class="p">)</span>
+
+<span class="nd">@agent</span><span class="o">.</span><span class="n">register_func</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="n">fixieai</span><span class="o">.</span><span class="n">Message</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s2">&quot;Response to the query&quot;</span>
+</code></pre></div>
+
+<p>The <code>BASE_PROMPT</code> and <code>FEW_SHOTS</code> strings are used to provide examples to the underlying
+Large Language Model, such as GPT-3, as well as to provide the Fixie Platform information
+on what kinds of queries this Agent can support.</p>
+<p>The <code>FEW_SHOTS</code> provided to an Agent must be a string consisting of one or more <em>stanzas</em>, where
+each stanza consists of a question, one or more rounds of internal actions taken by the Agent, 
+and a final answer. Stanzas must be separated from each other by a blank line. The query line
+in the stanza must start with <code>Q:</code>, and the answer line must start with <code>A:</code>.</p>
+<p>Internal actions taken by the Agent can be of one of two forms:</p>
+<ul>
+<li><code>Ask Func[&lt;func_name&gt;]: &lt;query_text&gt;</code>: This indicates that the function <code>&lt;func_name&gt;</code> should
+be invoked when the output of the underlying LLM starts with this string. The string following
+<code>Ask Func[&lt;func_name&gt;]:</code> is passed to the function as the <code>query.text</code> parameter.</li>
+<li><code>Ask Agent[&lt;agent_name&gt;]: &lt;query_text&gt;</code>: This indicates that the Agent <code>&lt;agent_name&gt;</code> should
+be invoked when the output of the underlying LLM starts with this string. The string following
+<code>Ask Agent[&lt;agent_name&gt;]:</code> is passed to the Agent as the <code>query.text</code> parameter.</li>
+</ul>
+<h2 id="agent-funcs">Agent Funcs</h2>
+<p>A <strong>Func</strong> is a function, defined in Python, that can be invoked by the Agent.
+(Note that Funcs need not be implemented in Python; you can implement Agents in other
+languages, as long as they adhere to the Fixie <a href="../agent-protocol/">Agent Protocol</a>.)
+As described above, when the language model for an Agent emits the token <code>Ask Func[&lt;func_name&gt;]</code>,
+the function <code>&lt;func_name&gt;</code> will be invoked.</p>
+<p>The <code>register_func</code> decorator is used to register a function that can be invoked by the Agent.</p>
+<p>A function registered with the <code>register_func</code> decorator has the signature:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@agent</span><span class="o">.</span><span class="n">register_func</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">user_storage</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">oauth_handler</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="o">...</span>
+</code></pre></div>
+
+<p>The <code>query</code> parameter is either a <code>str</code> a <a class="autorefs autorefs-internal" href="../python-agent-api/#fixieai.agents.api.Message"><code>Message</code></a> object.
+If the query parameter is a string, this parameter contains the text of the Agent query.
+If the query parameter is a <code>Message</code> object, this parameter contains the text of the Agent
+along with zero or more <a class="autorefs autorefs-internal" href="../python-agent-api/#fixieai.agents.api.Embed"><code>Embed</code></a> objects, as described in the
+<a href="#embeds">Embeds</a> section below.</p>
+<p>The optional <code>user_storage</code> parameter provides the Func an interface to the Fixie
+<a href="#user-storage">User Storage</a> service, as described below.</p>
+<p>The optional <code>oauth_handler</code> parameter provides the Func an interface to performing
+OAuth authentication with external services, as described in the <a href="#agent-oauth-support">OAuth</a> section
+below.</p>
+<p>The function must return either a <code>str</code> or a <a class="autorefs autorefs-internal" href="../python-agent-api/#fixieai.agents.api.Message"><code>Message</code></a> object.
+Returning a string is equivalent to returning a <code>Message</code> object with the string as its <code>text</code>
+field, and no <code>embeds</code>.</p>
+<h2 id="built-in-functions">Built-in functions</h2>
+<p>All Fixie agents have access to the following set of built-in functions that they can invoke.</p>
+<ul>
+<li><code>Ask Func[base_prompt]</code>: Returns the base prompt for the agent.</li>
+<li><code>Ask Func[local_datetime]</code>: Returns the current datetime in the user's local timezone.</li>
+<li><code>Ask Func[utc_datetime]</code>: Returns the current datetime in UTC timezone.</li>
+<li><code>Ask Func[query_embed]</code>: Runs the prompt in the query against the contents of the embed.</li>
+<li><code>Ask Func[query_corpus]</code>: Runs the prompt in the query against the contents of the agent-defined corpus.</li>
+</ul>
+<h2 id="embeds">Embeds</h2>
+<p><strong>Embeds</strong> allow arbitrary binary data to be associated with a query or response Message in
+Fixie, similar to email attachments. Embeds can be used to store images, video, text, or
+any other binary data.</p>
+<p>Embeds are represented by the <a class="autorefs autorefs-internal" href="../python-agent-api/#fixieai.agents.api.Embed"><code>Embed</code></a> class. Agents can access
+the Embeds associated with a Message as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@agent</span><span class="o">.</span><span class="n">register_func</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="n">fixieai</span><span class="o">.</span><span class="n">Message</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">embed</span> <span class="ow">in</span> <span class="n">query</span><span class="o">.</span><span class="n">embeds</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Embed key: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Embed content-type: </span><span class="si">{</span><span class="n">embed</span><span class="o">.</span><span class="n">content_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">embed_value_as_text</span> <span class="o">=</span> <span class="n">embed</span><span class="o">.</span><span class="n">text</span>
+        <span class="n">embed_value_as_bytes</span> <span class="o">=</span> <span class="n">embed</span><span class="o">.</span><span class="n">content</span>
+</code></pre></div>
+
+<p>An Agent function can also add an Embed to its response Message by adding it to the
+<code>embeds</code> dictionary of the <code>Message</code> object:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@agent</span><span class="o">.</span><span class="n">register_func</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="n">fixieai</span><span class="o">.</span><span class="n">Message</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fixieai</span><span class="o">.</span><span class="n">Message</span><span class="p">:</span>
+  <span class="n">reply</span> <span class="o">=</span> <span class="n">fixieai</span><span class="o">.</span><span class="n">Message</span><span class="p">(</span><span class="s2">&quot;Response to the query&quot;</span><span class="p">)</span>
+  <span class="n">reply</span><span class="o">.</span><span class="n">embeds</span><span class="p">[</span><span class="s2">&quot;my_embed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fixieai</span><span class="o">.</span><span class="n">Embed</span><span class="p">(</span><span class="n">content_type</span><span class="o">=</span><span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
+  <span class="n">reply</span><span class="o">.</span><span class="n">embeds</span><span class="p">[</span><span class="s2">&quot;my_embed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Hello, world!&quot;</span>
+</code></pre></div>
+
+<h2 id="user-storage">User Storage</h2>
+<p>Fixie Agents can store and retrieve arbitrary data associated with a user, using the
+<a class="autorefs autorefs-internal" href="../python-agent-api/#fixieai.agents.user_storage.UserStorage"><code>UserStorage</code></a> class. This class provides a simple
+interface to a persistent key/value storage service, with a separate key/value
+store for each Fixie user. This can be used to maintain state about a particular
+user that persists across Agent invocations.</p>
+<p>The <code>UserStorage</code> instance for a given query can be obtained by providing a <code>user_storage</code></p>
+<p>parameter to an Agent function. The <code>UserStorage</code> object acts as a Python <code>dict</code> that stores
+state associated with an arbitrary string key. <code>UserStorage</code> values may consist of Python
+primitive types, such as <code>str</code>, <code>int</code>, <code>float</code>, <code>bool</code>, <code>None</code>, or <code>bytes</code>, as well as
+lists of these types, or a Dict mapping a <code>str</code> to one of these types.</p>
+<h3 id="user-storage-example">User Storage Example</h3>
+<div class="highlight"><pre><span></span><code><span class="nd">@agent</span><span class="o">.</span><span class="n">register_func</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="n">fixieai</span><span class="o">.</span><span class="n">Message</span><span class="p">,</span> <span class="n">user_storage</span><span class="p">:</span> <span class="n">fixieai</span><span class="o">.</span><span class="n">UserStorage</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">user_storage</span><span class="p">[</span><span class="s2">&quot;my_key&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;my_value&quot;</span>
+    <span class="k">return</span> <span class="n">user_storage</span><span class="p">[</span><span class="s2">&quot;my_key&quot;</span><span class="p">]</span>
+</code></pre></div>
+
+<h2 id="agent-oauth-support">Agent OAuth Support</h2>
+<p>Fixie Agents can authenticate to third-party services to perform
+actions on behalf of the user. This is done using OAuth 2.0, which
+is a standard protocol for authorization. OAuth 2.0 allows users
+to grant limited access to their accounts on one service, to another
+service, without having to share their password.</p>
+<p>Fixie provides a simple interface for Agents to perform OAuth
+authentication, using the <a class="autorefs autorefs-internal" href="../python-agent-api/#fixieai.agents.oauth.OAuthParams"><code>OAuthParams</code></a> class.
+Using this class, an Agent function can use the <a class="autorefs autorefs-internal" href="../python-agent-api/#fixieai.agents.oauth.OAuthHandler"><code>OAuthHandler</code></a>
+class -- which is passed to the function as the <code>oauth_handler</code> parameter -- to obtain an access
+token for the user.</p>
+<h3 id="oauth-example">OAuth Example</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">fixieai</span>
+
+<span class="n">oauth_params</span> <span class="o">=</span> <span class="n">fixieai</span><span class="o">.</span><span class="n">OAuthParams</span><span class="p">()</span>
+<span class="n">oauth_params</span><span class="o">.</span><span class="n">client_id</span> <span class="o">=</span> <span class="s2">&quot;XXXXX.apps.googleusercontent.com&quot;</span><span class="p">,</span>
+<span class="n">oauth_params</span><span class="o">.</span><span class="n">auth_uri</span> <span class="o">=</span> <span class="s2">&quot;https://accounts.google.com/o/oauth2/auth&quot;</span>
+<span class="n">oauth_params</span><span class="o">.</span><span class="n">token_uri</span> <span class="o">=</span> <span class="s2">&quot;https://oauth2.googleapis.com/token&quot;</span>
+<span class="n">oauth_params</span><span class="o">.</span><span class="n">client_secret</span> <span class="o">=</span> <span class="s2">&quot;XXXXXXXXX&quot;</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">fixieai</span><span class="o">.</span><span class="n">CodeShotAgent</span><span class="p">(</span><span class="n">BASE_PROMPT</span><span class="p">,</span> <span class="n">FEW_SHOTS</span><span class="p">,</span> <span class="n">oauth_params</span><span class="o">=</span><span class="n">oauth_params</span><span class="p">)</span>
+
+<span class="nd">@agent</span><span class="o">.</span><span class="n">register_func</span>
+<span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">oauth_handler</span><span class="p">:</span> <span class="n">fixieai</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">):</span>
+  <span class="n">user_token</span> <span class="o">=</span> <span class="n">oauth_handler</span><span class="o">.</span><span class="n">user_token</span><span class="p">()</span>
+  <span class="k">if</span> <span class="n">user_token</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># Return the URL that the user should click on to authorize the Agent.</span>
+    <span class="k">return</span> <span class="n">oauth_handler</span><span class="o">.</span><span class="n">get_authorization_url</span><span class="p">()</span>
+
+  <span class="c1"># Do something with the user_token returned by the OAuth handler.</span>
+  <span class="n">client</span> <span class="o">=</span> <span class="n">gcalendar_client</span><span class="o">.</span><span class="n">GcalendarClient</span><span class="p">(</span><span class="n">user_token</span><span class="p">)</span>
+  <span class="c1"># ...</span>
+</code></pre></div></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = ".."</script>
+    
+    <script src="../js/base.js"></script>
+    <script src="../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

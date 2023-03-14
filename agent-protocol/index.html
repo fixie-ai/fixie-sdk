@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="API and SDK documentation for Fixie">
+    
+    <link rel="canonical" href="https://fixie.ai/agent-protocol/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    
+    <title>Agent Protocol - Fixie Developer Portal</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../css/base.min.css" rel="stylesheet">
+    <link href="../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+    <link href="../assets/_mkdocstrings.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="..">Fixie Developer Portal</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Introduction</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../architecture/">Architecture</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Agents <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../agent-quickstart/">Agent QuickStart</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../agents/">Fixie Agent API</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Agent Protocol</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python SDK <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../python-client-api/">Python Client API</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../python-agent-api/">Python Agent API</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../cli/">CLI</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="https://app.fixie.ai/static/docs/index.html">GraphQL</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../agents/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../python-client-api/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/fixie-ai/fixie-sdk">fixie-ai/fixie-sdk</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#fixie-agent-protocol">Fixie Agent Protocol</a></li>
+            <li class="second-level"><a href="#few-shot-examples">Few-shot examples</a></li>
+                
+            <li class="second-level"><a href="#function-invocation">Function invocation</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="fixie-agent-protocol">Fixie Agent Protocol</h1>
+<p>Fixie Agents can be implemented in any programming language. The Fixie
+<a href="../python-agent-api/">Python Agent API</a> provides a Python SDK that makes it easy to
+implement Agents in Python, however, it is possible to implement Fixie
+Agents in any programming language, as long as the Agent code conforms
+to the following protocol.</p>
+<p>A Fixie Agent is a program that accepts HTTP requests of two types:</p>
+<ul>
+<li>An HTTP <code>GET</code> request to the <code>/</code> endpoint, which returns a list of few-shot
+examples that the Agent supports.</li>
+<li>An HTTP <code>POST</code> request to the <code>/FUNC</code> endpoint, which returns the result of
+calling the function <code>FUNC</code> with the parameters specified in the request.
+Agents can support multiple functions.</li>
+</ul>
+<h2 id="few-shot-examples">Few-shot examples</h2>
+<p>Upon receiving an HTTP GET request to the <code>/</code> endpoint, the Agent must
+return a list of few-shot examples that the Agent supports. The few-shot
+examples are used to provide examples to the underlying Large Language
+Model, such as GPT-3, as well as to provide the Fixie Platform information
+on what kinds of queries this Agent can support.</p>
+<p>The few-shot examples are returned as a JSON object with the following
+format:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;base_prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The base prompt for the few-shot examples.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;few_shots&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;The first few-shot example.&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;The second few-shot example.&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;The third few-shot example.&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Each few-shot excample consists of one or more lines, separating by a newline
+character (<code>\n</code>). The first line of each example must be a sample query, which
+must start with the prefix <code>Q:</code>. The final line of the few-shot example must be
+the corresponding answer, which must start with the prefix <code>A:</code>. The few-shot
+example may contain any number of lines in between the query and answer, representing
+intermediate outputs from the Large Language Model, as well as responses to the
+LLM from external functions.</p>
+<p>Here is an example of a single few-shot example:</p>
+<div class="highlight"><pre><span></span><code><span class="nl">Q</span><span class="p">:</span><span class="w"> </span><span class="n">Generate</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">random</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="ow">between</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="mf">19.</span>
+<span class="n">Ask</span><span class="w"> </span><span class="n">Func</span><span class="o">[</span><span class="n">genrand</span><span class="o">]</span><span class="err">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span>
+<span class="n">Func</span><span class="o">[</span><span class="n">genrand</span><span class="o">]</span><span class="w"> </span><span class="nl">says</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span>
+<span class="nl">A</span><span class="p">:</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">random</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="mf">17.</span>
+</code></pre></div>
+
+<p>In this example, the first line represents a sample query that the Agent can support.
+The second line is the LLM response to receiving this query, which in this case
+indicates that the Function <code>genrand</code> should be invoked with the input string
+<code>0, 19</code>. The third line is the expected response from the Function <code>genrand</code>, and
+the final line is the answer to the query.</p>
+<p>Using the Fixie Python SDK, the values of the <code>base_prompt</code> and <code>few_shots</code> fields
+are specified by setting the values of the <code>BASE_PROMPT</code> and <code>FEW_SHOTS</code> variables
+in the Agent code, respectively.</p>
+<h2 id="function-invocation">Function invocation</h2>
+<p>Upon receiving an HTTP POST request to the <code>/FUNC</code> endpoint, the Agent must
+return the result of calling the Agent function <code>FUNC</code> with the parameters specified
+in the body of the HTTP POST request.</p>
+<p>The body of the POST request will be in the following format:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Argument to function call&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>The Agent should invoke the function <code>FUNC</code>, passing in the contents of the
+JSON object <code>message</code> as the argument to the function call. The result of the
+function call should be returned as the value of the <code>result</code> field in the
+response to the HTTP POST request.</p>
+<p>The response to the HTTP <code>POST</code> request should be a JSON object in the format:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Response to function call&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Using the Fixie Python SDK, implementing an Agent function is done using the
+<code>@fixieai.CodeShotAgent.register_func</code> decorator. The decorator takes a single argument,
+which is the function to be registered. The function must take a single argument,
+which contains the JSON <code>message</code> object from the HTTP POST request. The function
+should return a string, which will be the value of the <code>text</code> field in the response
+message returned by the Agent.</p>
+<p>See <a href="../python-agent-api/">python-agent-api.md</a> for more information on the Fixie Python Agent API,
+and <a href="../agent-quickstart/">agent-quickstart.md</a> for a quickstart guide on how to
+implement Agents in Fixie.</p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = ".."</script>
+    
+    <script src="../js/base.js"></script>
+    <script src="../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

@@ -1,0 +1,1741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="API and SDK documentation for Fixie">
+    
+    <link rel="canonical" href="https://fixie.ai/python-client-api/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    
+    <title>Python Client API - Fixie Developer Portal</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../css/base.min.css" rel="stylesheet">
+    <link href="../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+    <link href="../assets/_mkdocstrings.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="..">Fixie Developer Portal</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Introduction</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../architecture/">Architecture</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Agents <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../agent-quickstart/">Agent QuickStart</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../agents/">Fixie Agent API</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../agent-protocol/">Agent Protocol</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python SDK <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li class="active">
+    <a href="./">Python Client API</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../python-agent-api/">Python Agent API</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../cli/">CLI</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="https://app.fixie.ai/static/docs/index.html">GraphQL</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../agent-protocol/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../python-agent-api/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/fixie-ai/fixie-sdk">fixie-ai/fixie-sdk</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#fixie-client-python-api-reference">Fixie Client Python API Reference</a></li>
+            <li class="second-level"><a href="#fixieai.client.client">fixieai.client.client</a></li>
+                
+            <li class="second-level"><a href="#fixieai.client.client.FixieClient">FixieClient</a></li>
+                
+                <li class="third-level"><a href="#fixieai.client.client.FixieClient.gqlclient">gqlclient</a></li>
+                <li class="third-level"><a href="#fixieai.client.client.FixieClient.url">url</a></li>
+                <li class="third-level"><a href="#fixieai.client.client.FixieClient.clone">clone()</a></li>
+                <li class="third-level"><a href="#fixieai.client.client.FixieClient.create_agent">create_agent()</a></li>
+                <li class="third-level"><a href="#fixieai.client.client.FixieClient.create_session">create_session()</a></li>
+                <li class="third-level"><a href="#fixieai.client.client.FixieClient.deploy_agent">deploy_agent()</a></li>
+                <li class="third-level"><a href="#fixieai.client.client.FixieClient.get_agent">get_agent()</a></li>
+                <li class="third-level"><a href="#fixieai.client.client.FixieClient.get_agents">get_agents()</a></li>
+                <li class="third-level"><a href="#fixieai.client.client.FixieClient.get_current_username">get_current_username()</a></li>
+                <li class="third-level"><a href="#fixieai.client.client.FixieClient.get_session">get_session()</a></li>
+                <li class="third-level"><a href="#fixieai.client.client.FixieClient.get_sessions">get_sessions()</a></li>
+                <li class="third-level"><a href="#fixieai.client.client.FixieClient.refresh_agent">refresh_agent()</a></li>
+            <li class="second-level"><a href="#fixieai.client.client.get_agents">get_agents()</a></li>
+                
+            <li class="second-level"><a href="#fixieai.client.client.get_client">get_client()</a></li>
+                
+            <li class="second-level"><a href="#fixieai.client.client.get_embeds">get_embeds()</a></li>
+                
+            <li class="second-level"><a href="#fixieai.client.client.get_session">get_session()</a></li>
+                
+            <li class="second-level"><a href="#fixieai.client.client.query">query()</a></li>
+                
+            <li class="second-level"><a href="#fixieai.client.session">fixieai.client.session</a></li>
+                
+            <li class="second-level"><a href="#fixieai.client.session.Session">Session</a></li>
+                
+                <li class="third-level"><a href="#fixieai.client.session.Session.frontend_agent_id">frontend_agent_id</a></li>
+                <li class="third-level"><a href="#fixieai.client.session.Session.session_id">session_id</a></li>
+                <li class="third-level"><a href="#fixieai.client.session.Session.session_url">session_url</a></li>
+                <li class="third-level"><a href="#fixieai.client.session.Session.add_message">add_message()</a></li>
+                <li class="third-level"><a href="#fixieai.client.session.Session.clone">clone()</a></li>
+                <li class="third-level"><a href="#fixieai.client.session.Session.delete_session">delete_session()</a></li>
+                <li class="third-level"><a href="#fixieai.client.session.Session.get_embeds">get_embeds()</a></li>
+                <li class="third-level"><a href="#fixieai.client.session.Session.get_messages">get_messages()</a></li>
+                <li class="third-level"><a href="#fixieai.client.session.Session.get_messages_since_last_time">get_messages_since_last_time()</a></li>
+                <li class="third-level"><a href="#fixieai.client.session.Session.get_metadata">get_metadata()</a></li>
+                <li class="third-level"><a href="#fixieai.client.session.Session.query">query()</a></li>
+                <li class="third-level"><a href="#fixieai.client.session.Session.run">run()</a></li>
+            <li class="second-level"><a href="#fixieai.client.agent">fixieai.client.agent</a></li>
+                
+            <li class="second-level"><a href="#fixieai.client.agent.Agent">Agent</a></li>
+                
+                <li class="third-level"><a href="#fixieai.client.agent.Agent.agent_id">agent_id</a></li>
+                <li class="third-level"><a href="#fixieai.client.agent.Agent.created">created</a></li>
+                <li class="third-level"><a href="#fixieai.client.agent.Agent.description">description</a></li>
+                <li class="third-level"><a href="#fixieai.client.agent.Agent.func_url">func_url</a></li>
+                <li class="third-level"><a href="#fixieai.client.agent.Agent.handle">handle</a></li>
+                <li class="third-level"><a href="#fixieai.client.agent.Agent.modified">modified</a></li>
+                <li class="third-level"><a href="#fixieai.client.agent.Agent.more_info_url">more_info_url</a></li>
+                <li class="third-level"><a href="#fixieai.client.agent.Agent.name">name</a></li>
+                <li class="third-level"><a href="#fixieai.client.agent.Agent.owner">owner</a></li>
+                <li class="third-level"><a href="#fixieai.client.agent.Agent.published">published</a></li>
+                <li class="third-level"><a href="#fixieai.client.agent.Agent.queries">queries</a></li>
+                <li class="third-level"><a href="#fixieai.client.agent.Agent.query_url">query_url</a></li>
+                <li class="third-level"><a href="#fixieai.client.agent.Agent.valid">valid</a></li>
+                <li class="third-level"><a href="#fixieai.client.agent.Agent.create_agent">create_agent()</a></li>
+                <li class="third-level"><a href="#fixieai.client.agent.Agent.delete_agent">delete_agent()</a></li>
+                <li class="third-level"><a href="#fixieai.client.agent.Agent.get_metadata">get_metadata()</a></li>
+                <li class="third-level"><a href="#fixieai.client.agent.Agent.update_agent">update_agent()</a></li>
+            <li class="second-level"><a href="#fixieai.cli.cli">fixieai.cli.cli</a></li>
+                
+            <li class="second-level"><a href="#fixieai.cli.cli.fixie">fixie()</a></li>
+                
+            <li class="second-level"><a href="#fixieai.cli.session.console">fixieai.cli.session.console</a></li>
+                
+            <li class="second-level"><a href="#fixieai.cli.session.console.Console">Console</a></li>
+                
+                <li class="third-level"><a href="#fixieai.cli.session.console.Console.run">run()</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="fixie-client-python-api-reference">Fixie Client Python API Reference</h1>
+
+
+<div class="doc doc-object doc-module">
+
+
+<a id="fixieai.client.client"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="fixieai.client.client.FixieClient" class="doc doc-heading">
+        <code>FixieClient</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>FixieClient is a client to the Fixie system.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>api_key</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>The API key for the Fixie API server. If not provided, the
+FIXIE_API_KEY environment variable will be used. If that is not
+set, the authenticated user API key will be used, or a ValueError
+will be raised if the user is not authenticated.</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fixieai.client.client.FixieClient.gqlclient" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">gqlclient</span><span class="p">:</span> <span class="n">Client</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the underlying GraphQL client used by this FixieClient.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fixieai.client.client.FixieClient.url" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">url</span><span class="p">:</span> <span class="nb">str</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the URL of the Fixie API server.</p>
+  </div>
+
+</div>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.client.FixieClient.clone" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">clone</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return a new FixieClient instance with the same configuration.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.client.FixieClient.create_agent" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">create_agent</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">query_url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">func_url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">more_info_url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">published</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Create a new Agent.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>handle</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The handle for the new Agent. This must be unique across all
+Agents owned by this user.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>name</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The name of the new Agent.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>description</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>A description of the new Agent.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>query_url</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>The URL of the new Agent's query endpoint.</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>func_url</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>The URL of the new Agent's func endpoint.</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>more_info_url</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>A URL with more information about the new Agent.</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>published</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[bool]</code>
+          </td>
+          <td><p>Whether the new Agent should be published.</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.client.FixieClient.create_session" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">create_session</span><span class="p">(</span><span class="n">frontend_agent_id</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Create a new Session.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.client.FixieClient.deploy_agent" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">deploy_agent</span><span class="p">(</span><span class="n">agent_handle</span><span class="p">,</span> <span class="n">files</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Deploys an agent implementation.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.client.FixieClient.get_agent" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_agent</span><span class="p">(</span><span class="n">agent_id</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return an existing Agent object.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.client.FixieClient.get_agents" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_agents</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return metadata about all running Fixie Agents. The keys of the returned
+dictionary are the Agent handles, and the values are dictionaries containing
+metadata about each Agent.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.client.FixieClient.get_current_username" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_current_username</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns the username of the current user.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.client.FixieClient.get_session" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_session</span><span class="p">(</span><span class="n">session_id</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return an existing Session object.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.client.FixieClient.get_sessions" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_sessions</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return a list of all session IDs.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.client.FixieClient.refresh_agent" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">refresh_agent</span><span class="p">(</span><span class="n">agent_handle</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Indicates that an agent's prompts should be refreshed.</p>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="fixieai.client.client.get_agents" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_agents</span><span class="p">()</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return metadata about all Fixie Agents. The keys of the returned
+dictionary are Agent IDs, and the values are dictionaries containing
+metadata about each Agent.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="fixieai.client.client.get_client" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_client</span><span class="p">()</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the global FixieClient instance.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="fixieai.client.client.get_embeds" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_embeds</span><span class="p">()</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return a list of Embeds.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="fixieai.client.client.get_session" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_session</span><span class="p">()</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the global Fixie Session instance.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="fixieai.client.client.query" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">query</span><span class="p">(</span><span class="n">text</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Run a query.</p>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+<a id="fixieai.client.session"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="fixieai.client.session.Session" class="doc doc-heading">
+        <code>Session</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>Represents a single session with the Fixie system.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>client</code></td>
+          <td>
+                <code><span title="fixieai.client.session.FixieClient">FixieClient</span></code>
+          </td>
+          <td><p>The FixieClient instance to use.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>session_id</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>The ID of the session to use. If not provided, a new
+session will be created.</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fixieai.client.session.Session.frontend_agent_id" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">frontend_agent_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the frontend agent ID used by this Fixie client.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fixieai.client.session.Session.session_id" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">session_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the session ID used by this Fixie client.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fixieai.client.session.Session.session_url" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">session_url</span><span class="p">:</span> <span class="nb">str</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the URL of the Fixie session.</p>
+  </div>
+
+</div>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.session.Session.add_message" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_message</span><span class="p">(</span><span class="n">text</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Add a message to this Session. Returns the added message text.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.session.Session.clone" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">clone</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return a new Session instance with the same configuration.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.session.Session.delete_session" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">delete_session</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Delete the current session.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.session.Session.get_embeds" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_embeds</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the Embeds attached to this Session.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.session.Session.get_messages" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_messages</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the messages that make up this session.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.session.Session.get_messages_since_last_time" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_messages_since_last_time</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return all messages since the given timestamp.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.session.Session.get_metadata" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_metadata</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return metadata about this session.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.session.Session.query" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">query</span><span class="p">(</span><span class="n">text</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Run a single query against the Fixie API and return the response.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.session.Session.run" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">run</span><span class="p">(</span><span class="n">text</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Run a query against the Fixie API, returning a generator that yields
+messages.</p>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+<a id="fixieai.client.agent"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="fixieai.client.agent.Agent" class="doc doc-heading">
+        <code>Agent</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>Provides an interface to the Fixie GraphQL Agent API.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>client</code></td>
+          <td>
+                <code><span title="fixieai.client.agent.FixieClient">FixieClient</span></code>
+          </td>
+          <td><p>The FixieClient instance to use.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>agent_id</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The Agent ID, e.g., "fixie/calc", or handle, e.g., "dice".</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fixieai.client.agent.Agent.agent_id" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">agent_id</span><span class="p">:</span> <span class="nb">str</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the agentId for this Agent.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fixieai.client.agent.Agent.created" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">created</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">]</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the creation timestamp for this Agent.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fixieai.client.agent.Agent.description" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the description for this Agent.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fixieai.client.agent.Agent.func_url" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">func_url</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the func URL for this Agent.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fixieai.client.agent.Agent.handle" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">handle</span><span class="p">:</span> <span class="nb">str</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the handle for this Agent.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fixieai.client.agent.Agent.modified" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">modified</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">]</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the modification timestamp for this Agent.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fixieai.client.agent.Agent.more_info_url" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">more_info_url</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the more info URL for this Agent.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fixieai.client.agent.Agent.name" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the name for this Agent.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fixieai.client.agent.Agent.owner" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">owner</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the owner of this Agent.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fixieai.client.agent.Agent.published" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">published</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the published status for this Agent.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fixieai.client.agent.Agent.queries" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">queries</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the queries for this Agent.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fixieai.client.agent.Agent.query_url" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">query_url</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the query URL for this Agent.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fixieai.client.agent.Agent.valid" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">valid</span><span class="p">:</span> <span class="nb">bool</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return whether this Agent is valid.</p>
+  </div>
+
+</div>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.agent.Agent.create_agent" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">create_agent</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">query_url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">func_url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">more_info_url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">published</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Create a new Agent with the given parameters.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.agent.Agent.delete_agent" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">delete_agent</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Delete this Agent.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.agent.Agent.get_metadata" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_metadata</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return metadata about this Agent.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.client.agent.Agent.update_agent" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">update_agent</span><span class="p">(</span><span class="n">new_handle</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">query_url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">func_url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">more_info_url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">published</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Update the Agent with the given parameters.</p>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+<a id="fixieai.cli.cli"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="fixieai.cli.cli.fixie" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">fixie</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Command-line interface to the Fixie platform.</p>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+<a id="fixieai.cli.session.console"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="fixieai.cli.session.console.Console" class="doc doc-heading">
+        <code>Console</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>A simple console interface for Fixie.</p>
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.cli.session.console.Console.run" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">run</span><span class="p">(</span><span class="n">initial_message</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Run the console application.</p>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = ".."</script>
+    
+    <script src="../js/base.js"></script>
+    <script src="../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

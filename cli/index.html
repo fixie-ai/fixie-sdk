@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="API and SDK documentation for Fixie">
+    
+    <link rel="canonical" href="https://fixie.ai/cli/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    
+    <title>CLI - Fixie Developer Portal</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../css/base.min.css" rel="stylesheet">
+    <link href="../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+    <link href="../assets/_mkdocstrings.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="..">Fixie Developer Portal</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Introduction</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../architecture/">Architecture</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Agents <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../agent-quickstart/">Agent QuickStart</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../agents/">Fixie Agent API</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../agent-protocol/">Agent Protocol</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python SDK <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../python-client-api/">Python Client API</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../python-agent-api/">Python Agent API</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">CLI</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="https://app.fixie.ai/static/docs/index.html">GraphQL</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../python-agent-api/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a rel="next" >
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/fixie-ai/fixie-sdk">fixie-ai/fixie-sdk</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#fixie-cli-reference">Fixie CLI Reference</a></li>
+        <li class="first-level "><a href="#fixie">fixie</a></li>
+            <li class="second-level"><a href="#agent">agent</a></li>
+                
+                <li class="third-level"><a href="#delete">delete</a></li>
+                <li class="third-level"><a href="#deploy">deploy</a></li>
+                <li class="third-level"><a href="#init">init</a></li>
+                <li class="third-level"><a href="#list">list</a></li>
+                <li class="third-level"><a href="#serve">serve</a></li>
+                <li class="third-level"><a href="#show">show</a></li>
+            <li class="second-level"><a href="#auth">auth</a></li>
+                
+            <li class="second-level"><a href="#deploy_1">deploy</a></li>
+                
+            <li class="second-level"><a href="#init_1">init</a></li>
+                
+            <li class="second-level"><a href="#new">new</a></li>
+                
+            <li class="second-level"><a href="#serve_1">serve</a></li>
+                
+            <li class="second-level"><a href="#session">session</a></li>
+                
+                <li class="third-level"><a href="#list_1">list</a></li>
+                <li class="third-level"><a href="#new_1">new</a></li>
+                <li class="third-level"><a href="#open">open</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="fixie-cli-reference">Fixie CLI Reference</h1>
+<p>This page provides documentation for the Fixie command line tool.</p>
+<h1 id="fixie">fixie</h1>
+<p>Command-line interface to the Fixie platform.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fixie</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span><span class="w"> </span><span class="n">COMMAND</span><span class="w"> </span><span class="o">[</span><span class="n">ARGS</span><span class="o">]</span><span class="p">...</span>
+</code></pre></div>
+
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="o">--</span><span class="nv">help</span><span class="w">  </span><span class="k">Show</span><span class="w"> </span><span class="nv">this</span><span class="w"> </span><span class="nv">message</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="k">exit</span>.
+</code></pre></div>
+
+<h2 id="agent">agent</h2>
+<p>Agent-related commands.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fixie</span><span class="w"> </span><span class="n">agent</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span><span class="w"> </span><span class="n">COMMAND</span><span class="w"> </span><span class="o">[</span><span class="n">ARGS</span><span class="o">]</span><span class="p">...</span>
+</code></pre></div>
+
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="o">--</span><span class="nv">help</span><span class="w">  </span><span class="k">Show</span><span class="w"> </span><span class="nv">this</span><span class="w"> </span><span class="nv">message</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="k">exit</span>.
+</code></pre></div>
+
+<h3 id="delete">delete</h3>
+<p>Delete an agent.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fixie</span><span class="w"> </span><span class="n">agent</span><span class="w"> </span><span class="k">delete</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span><span class="w"> </span><span class="n">HANDLE</span>
+</code></pre></div>
+
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="o">--</span><span class="nv">help</span><span class="w">  </span><span class="k">Show</span><span class="w"> </span><span class="nv">this</span><span class="w"> </span><span class="nv">message</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="k">exit</span>.
+</code></pre></div>
+
+<h3 id="deploy">deploy</h3>
+<p>Deploy the current agent.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fixie</span><span class="w"> </span><span class="n">agent</span><span class="w"> </span><span class="n">deploy</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">PATH</span><span class="o">]</span>
+</code></pre></div>
+
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="o">--</span><span class="nv">metadata</span><span class="o">-</span><span class="nv">only</span><span class="w">  </span><span class="nv">Only</span><span class="w"> </span><span class="nv">publish</span><span class="w"> </span><span class="nv">metadata</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="nv">refresh</span>,<span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nv">not</span><span class="w"> </span><span class="nv">redeploy</span>.
+<span class="w">  </span><span class="o">--</span><span class="nv">help</span><span class="w">           </span><span class="k">Show</span><span class="w"> </span><span class="nv">this</span><span class="w"> </span><span class="nv">message</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="k">exit</span>.
+</code></pre></div>
+
+<h3 id="init">init</h3>
+<p>Creates an agent.yaml file.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fixie</span><span class="w"> </span><span class="n">agent</span><span class="w"> </span><span class="n">init</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span>
+</code></pre></div>
+
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="o">--</span><span class="nv">handle</span><span class="w"> </span><span class="nv">TEXT</span>
+<span class="w">  </span><span class="o">--</span><span class="nv">description</span><span class="w"> </span><span class="nv">TEXT</span>
+<span class="w">  </span><span class="o">--</span><span class="nv">entry</span><span class="o">-</span><span class="nv">point</span><span class="w"> </span><span class="nv">TEXT</span>
+<span class="w">  </span><span class="o">--</span><span class="nv">more</span><span class="o">-</span><span class="nv">info</span><span class="o">-</span><span class="nv">url</span><span class="w"> </span><span class="nv">TEXT</span>
+<span class="w">  </span><span class="o">--</span><span class="nv">public</span><span class="w"> </span><span class="nv">BOOLEAN</span>
+<span class="w">  </span><span class="o">--</span><span class="nv">requirement</span><span class="w"> </span><span class="nv">TEXT</span><span class="w">    </span><span class="nv">Additional</span><span class="w"> </span><span class="nv">requirements</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">requirements</span>.<span class="nv">txt</span>.<span class="w"> </span><span class="nv">Can</span><span class="w"> </span><span class="nv">be</span>
+<span class="w">                        </span><span class="nv">specified</span><span class="w"> </span><span class="nv">multiple</span><span class="w"> </span><span class="nv">times</span>.
+<span class="w">  </span><span class="o">--</span><span class="nv">help</span><span class="w">                </span><span class="k">Show</span><span class="w"> </span><span class="nv">this</span><span class="w"> </span><span class="nv">message</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="k">exit</span>.
+</code></pre></div>
+
+<h3 id="list">list</h3>
+<p>List agents.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fixie</span><span class="w"> </span><span class="n">agent</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span>
+</code></pre></div>
+
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="o">--</span><span class="nv">verbose</span><span class="w">  </span><span class="nv">Enable</span><span class="w"> </span><span class="nv">verbose</span><span class="w"> </span><span class="nv">output</span>.
+<span class="w">  </span><span class="o">--</span><span class="nv">help</span><span class="w">     </span><span class="k">Show</span><span class="w"> </span><span class="nv">this</span><span class="w"> </span><span class="nv">message</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="k">exit</span>.
+</code></pre></div>
+
+<h3 id="serve">serve</h3>
+<p>Serve the current agent locally via a publicly-accessible URL.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fixie</span><span class="w"> </span><span class="n">agent</span><span class="w"> </span><span class="n">serve</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">PATH</span><span class="o">]</span>
+</code></pre></div>
+
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="o">--</span><span class="n">host</span><span class="w"> </span><span class="n">TEXT</span>
+<span class="w">  </span><span class="o">--</span><span class="n">port</span><span class="w"> </span><span class="n">INTEGER</span>
+<span class="w">  </span><span class="o">--</span><span class="n">tunnel</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">tunnel</span><span class="w">  </span><span class="p">(</span><span class="n">default</span><span class="w"> </span><span class="n">enabled</span><span class="p">)</span><span class="w"> </span><span class="n">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tunnel</span><span class="w"> </span><span class="n">using</span>
+<span class="w">                          </span><span class="n">localhost</span><span class="o">.</span><span class="n">run</span><span class="o">.</span>
+<span class="w">  </span><span class="o">--</span><span class="n">reload</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">reload</span><span class="w">  </span><span class="p">(</span><span class="n">default</span><span class="w"> </span><span class="n">enabled</span><span class="p">)</span><span class="w"> </span><span class="n">Reload</span><span class="w"> </span><span class="n">automatically</span><span class="o">.</span>
+<span class="w">  </span><span class="o">--</span><span class="n">help</span><span class="w">                  </span><span class="n">Show</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span>
+</code></pre></div>
+
+<h3 id="show">show</h3>
+<p>Show an agent.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fixie</span><span class="w"> </span><span class="n">agent</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span><span class="w"> </span><span class="n">AGENT_ID</span>
+</code></pre></div>
+
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="o">--</span><span class="nv">help</span><span class="w">  </span><span class="k">Show</span><span class="w"> </span><span class="nv">this</span><span class="w"> </span><span class="nv">message</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="k">exit</span>.
+</code></pre></div>
+
+<h2 id="auth">auth</h2>
+<p>Authorizes <code>fixie</code> to access Fixie platform.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fixie</span><span class="w"> </span><span class="n">auth</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span>
+</code></pre></div>
+
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="o">--</span><span class="nv">force</span><span class="w">  </span><span class="nv">Forces</span><span class="w"> </span><span class="nv">authentication</span>,<span class="w"> </span><span class="nv">even</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">user</span><span class="w"> </span><span class="nv">is</span><span class="w"> </span><span class="nv">authenticated</span>.
+<span class="w">  </span><span class="o">--</span><span class="nv">help</span><span class="w">   </span><span class="k">Show</span><span class="w"> </span><span class="nv">this</span><span class="w"> </span><span class="nv">message</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="k">exit</span>.
+</code></pre></div>
+
+<h2 id="deploy_1">deploy</h2>
+<p>Deploy the current agent.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fixie</span><span class="w"> </span><span class="n">deploy</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">PATH</span><span class="o">]</span>
+</code></pre></div>
+
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="o">--</span><span class="nv">metadata</span><span class="o">-</span><span class="nv">only</span><span class="w">  </span><span class="nv">Only</span><span class="w"> </span><span class="nv">publish</span><span class="w"> </span><span class="nv">metadata</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="nv">refresh</span>,<span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nv">not</span><span class="w"> </span><span class="nv">redeploy</span>.
+<span class="w">  </span><span class="o">--</span><span class="nv">help</span><span class="w">           </span><span class="k">Show</span><span class="w"> </span><span class="nv">this</span><span class="w"> </span><span class="nv">message</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="k">exit</span>.
+</code></pre></div>
+
+<h2 id="init_1">init</h2>
+<p>Creates an agent.yaml file.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fixie</span><span class="w"> </span><span class="n">init</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span>
+</code></pre></div>
+
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="o">--</span><span class="nv">handle</span><span class="w"> </span><span class="nv">TEXT</span>
+<span class="w">  </span><span class="o">--</span><span class="nv">description</span><span class="w"> </span><span class="nv">TEXT</span>
+<span class="w">  </span><span class="o">--</span><span class="nv">entry</span><span class="o">-</span><span class="nv">point</span><span class="w"> </span><span class="nv">TEXT</span>
+<span class="w">  </span><span class="o">--</span><span class="nv">more</span><span class="o">-</span><span class="nv">info</span><span class="o">-</span><span class="nv">url</span><span class="w"> </span><span class="nv">TEXT</span>
+<span class="w">  </span><span class="o">--</span><span class="nv">public</span><span class="w"> </span><span class="nv">BOOLEAN</span>
+<span class="w">  </span><span class="o">--</span><span class="nv">requirement</span><span class="w"> </span><span class="nv">TEXT</span><span class="w">    </span><span class="nv">Additional</span><span class="w"> </span><span class="nv">requirements</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">requirements</span>.<span class="nv">txt</span>.<span class="w"> </span><span class="nv">Can</span><span class="w"> </span><span class="nv">be</span>
+<span class="w">                        </span><span class="nv">specified</span><span class="w"> </span><span class="nv">multiple</span><span class="w"> </span><span class="nv">times</span>.
+<span class="w">  </span><span class="o">--</span><span class="nv">help</span><span class="w">                </span><span class="k">Show</span><span class="w"> </span><span class="nv">this</span><span class="w"> </span><span class="nv">message</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="k">exit</span>.
+</code></pre></div>
+
+<h2 id="new">new</h2>
+<p>Creates a new session and opens it.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fixie</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">MESSAGE</span><span class="o">]</span>
+</code></pre></div>
+
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="o">--</span><span class="n">web</span><span class="w">             </span><span class="k">Open</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">session</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">interface</span><span class="p">.</span>
+<span class="w">  </span><span class="o">-</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">agent</span><span class="w"> </span><span class="kt">TEXT</span><span class="w">  </span><span class="n">A</span><span class="w"> </span><span class="k">specific</span><span class="w"> </span><span class="n">agent</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">talk</span><span class="w"> </span><span class="k">to</span><span class="p">.</span><span class="w"> </span><span class="k">If</span><span class="w"> </span><span class="n">unset</span><span class="p">,</span><span class="w"> </span><span class="n n-Quoted">`fixie`</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">used</span><span class="p">.</span>
+<span class="w">  </span><span class="o">--</span><span class="k">help</span><span class="w">            </span><span class="k">Show</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">exit</span><span class="p">.</span>
+</code></pre></div>
+
+<h2 id="serve_1">serve</h2>
+<p>Serve the current agent locally via a publicly-accessible URL.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fixie</span><span class="w"> </span><span class="n">serve</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">PATH</span><span class="o">]</span>
+</code></pre></div>
+
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="o">--</span><span class="n">host</span><span class="w"> </span><span class="n">TEXT</span>
+<span class="w">  </span><span class="o">--</span><span class="n">port</span><span class="w"> </span><span class="n">INTEGER</span>
+<span class="w">  </span><span class="o">--</span><span class="n">tunnel</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">tunnel</span><span class="w">  </span><span class="p">(</span><span class="n">default</span><span class="w"> </span><span class="n">enabled</span><span class="p">)</span><span class="w"> </span><span class="n">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tunnel</span><span class="w"> </span><span class="n">using</span>
+<span class="w">                          </span><span class="n">localhost</span><span class="o">.</span><span class="n">run</span><span class="o">.</span>
+<span class="w">  </span><span class="o">--</span><span class="n">reload</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">reload</span><span class="w">  </span><span class="p">(</span><span class="n">default</span><span class="w"> </span><span class="n">enabled</span><span class="p">)</span><span class="w"> </span><span class="n">Reload</span><span class="w"> </span><span class="n">automatically</span><span class="o">.</span>
+<span class="w">  </span><span class="o">--</span><span class="n">help</span><span class="w">                  </span><span class="n">Show</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">exit</span><span class="o">.</span>
+</code></pre></div>
+
+<h2 id="session">session</h2>
+<p>Session-related commands.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fixie</span><span class="w"> </span><span class="k">session</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span><span class="w"> </span><span class="n">COMMAND</span><span class="w"> </span><span class="o">[</span><span class="n">ARGS</span><span class="o">]</span><span class="p">...</span>
+</code></pre></div>
+
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="o">--</span><span class="nv">help</span><span class="w">  </span><span class="k">Show</span><span class="w"> </span><span class="nv">this</span><span class="w"> </span><span class="nv">message</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="k">exit</span>.
+</code></pre></div>
+
+<h3 id="list_1">list</h3>
+<p>Lists sessions.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fixie</span><span class="w"> </span><span class="k">session</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span>
+</code></pre></div>
+
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="o">--</span><span class="nv">help</span><span class="w">  </span><span class="k">Show</span><span class="w"> </span><span class="nv">this</span><span class="w"> </span><span class="nv">message</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="k">exit</span>.
+</code></pre></div>
+
+<h3 id="new_1">new</h3>
+<p>Creates a new session and opens it.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fixie</span><span class="w"> </span><span class="k">session</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">MESSAGE</span><span class="o">]</span>
+</code></pre></div>
+
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="o">--</span><span class="n">web</span><span class="w">             </span><span class="k">Open</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">session</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">interface</span><span class="p">.</span>
+<span class="w">  </span><span class="o">-</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">--</span><span class="n">agent</span><span class="w"> </span><span class="kt">TEXT</span><span class="w">  </span><span class="n">A</span><span class="w"> </span><span class="k">specific</span><span class="w"> </span><span class="n">agent</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">talk</span><span class="w"> </span><span class="k">to</span><span class="p">.</span><span class="w"> </span><span class="k">If</span><span class="w"> </span><span class="n">unset</span><span class="p">,</span><span class="w"> </span><span class="n n-Quoted">`fixie`</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">used</span><span class="p">.</span>
+<span class="w">  </span><span class="o">--</span><span class="k">help</span><span class="w">            </span><span class="k">Show</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">exit</span><span class="p">.</span>
+</code></pre></div>
+
+<h3 id="open">open</h3>
+<p>Opens a session.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">fixie</span><span class="w"> </span><span class="k">session</span><span class="w"> </span><span class="k">open</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span><span class="w"> </span><span class="n">SESSION_ID</span>
+</code></pre></div>
+
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="o">--</span><span class="nv">web</span><span class="w">   </span><span class="nv">Open</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">session</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">web</span><span class="w"> </span><span class="nv">interface</span>.
+<span class="w">  </span><span class="o">--</span><span class="nv">help</span><span class="w">  </span><span class="k">Show</span><span class="w"> </span><span class="nv">this</span><span class="w"> </span><span class="nv">message</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="k">exit</span>.
+</code></pre></div></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = ".."</script>
+    
+    <script src="../js/base.js"></script>
+    <script src="../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

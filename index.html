@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="API and SDK documentation for Fixie">
+    
+    <link rel="canonical" href="https://fixie.ai/">
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    
+    <title>Introduction - Fixie Developer Portal</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="css/base.min.css" rel="stylesheet">
+    <link href="css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+    <link href="assets/_mkdocstrings.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body class="homepage" >
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href=".">Fixie Developer Portal</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li class="active">
+                        <a href=".">Introduction</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="architecture/">Architecture</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Agents <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="agent-quickstart/">Agent QuickStart</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="agents/">Fixie Agent API</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="agent-protocol/">Agent Protocol</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python SDK <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="python-client-api/">Python Client API</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="python-agent-api/">Python Agent API</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="cli/">CLI</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="https://app.fixie.ai/static/docs/index.html">GraphQL</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a rel="prev" >
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="architecture/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/fixie-ai/fixie-sdk">fixie-ai/fixie-sdk</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#fixie-developer-portal">Fixie Developer Portal</a></li>
+        <li class="first-level "><a href="#getting-started">Getting started</a></li>
+        <li class="first-level "><a href="#agent-examples">Agent Examples</a></li>
+        <li class="first-level "><a href="#documentation">Documentation</a></li>
+            <li class="second-level"><a href="#tutorials">Tutorials</a></li>
+                
+            <li class="second-level"><a href="#reference">Reference</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="fixie-developer-portal">Fixie Developer Portal</h1>
+<p><a href="https://fixie.ai">Fixie</a> is a platform for building applications using Large Language
+Models. With Fixie, you can write apps that communicate, in natural
+language, with one or more <em>Agents</em> that can access individual APIs or
+sources of data, such as GitHub, Google Calendar, or a database.</p>
+<p>You can access the Fixie web interface at <a href="https://app.fixie.ai">app.fixie.ai</a>.
+Using the Fixie SDK allows you to connect your own
+applications to the Fixie platform, either as a client, or by
+building custom agents that plug into the platform.</p>
+<p>To learn more about Fixie, check us out at <a href="https://fixie.ai">https://fixie.ai</a>.</p>
+<hr />
+<h1 id="getting-started">Getting started</h1>
+<ol>
+<li>Verify you can access <a href="http://app.fixie.ai">app.fixie.ai</a> with your Google or GitHub email</li>
+<li>Install the fixie CLI with <code>pip install fixieai</code> and run <code>fixie auth</code> to ensure your are successfully authenticated</li>
+<li>Fork the <a href="https://github.com/fixie-ai/fixie-examples">examples repo</a></li>
+<li>Choose any of the example agents, <code>cd</code> into the directory, and run <code>fixie agent deploy</code></li>
+<li>Test that agent by running <code>fixie console -a username/agent_name</code> and inputting a test query. You can also run <code>fixie console</code> and then @ your specific agent (e.g. <code>@username/agent_name this is the query</code>)</li>
+<li>You can also talk to deployed agents directly at <a href="http://app.fixie.ai">app.fixie.ai</a></li>
+<li>For local development and testing, you can also run your agent locally with <code>fixie agent serve</code>. This is easier for debugging what’s happening when things go wrong. This will create a tunnel to your local machine. After running serve, open a new terminal window and talk to the agent just like in step 5.</li>
+</ol>
+<p>Example of query using SDK:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">fixieai</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">fixieai</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;How many countries start with the letter R ?&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</code></pre></div>
+
+<h1 id="agent-examples">Agent Examples</h1>
+<p>Agents are at the heart of the Fixie ecosystem, and we make it easy to build and contribute your own. To get started you can scaffold out a default agent by running: <code>fixie init</code>. For more examples
+check out <a href="agents/">Building Fixie Agents</a> and our <a href="https://github.com/fixie-ai/fixie-examples">examples repo</a>.</p>
+<h1 id="documentation">Documentation</h1>
+<p>Check out the links below for more information on how to get started using Fixie.</p>
+<h2 id="tutorials">Tutorials</h2>
+<ul>
+<li><a href="architecture/">Fixie Architecture Overview</a></li>
+<li><a href="agent-quickstart/">Agent Quickstart</a></li>
+<li><a href="agents/">Building Fixie Agents</a></li>
+<li><a href="agent-protocol/">Agent Protocol</a></li>
+</ul>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="cli/">Fixie CLI Reference</a></li>
+<li><a href="python-client-api/">Python Client API</a></li>
+<li><a href="python-agent-api/">Python Agent API</a></li>
+<li><a href="https://app.fixie.ai/static/docs/index.html">Fixie GraphQL API Reference</a></li>
+</ul></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "."</script>
+    
+    <script src="js/base.js"></script>
+    <script src="search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>
+
+<!--
+MkDocs version : 1.4.2
+Build Date UTC : 2023-03-14 00:05:45.842067+00:00
+-->

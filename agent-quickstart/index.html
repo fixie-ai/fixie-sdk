@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="API and SDK documentation for Fixie">
+    
+    <link rel="canonical" href="https://fixie.ai/agent-quickstart/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    
+    <title>Agent QuickStart - Fixie Developer Portal</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../css/base.min.css" rel="stylesheet">
+    <link href="../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+    <link href="../assets/_mkdocstrings.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="..">Fixie Developer Portal</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Introduction</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../architecture/">Architecture</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Agents <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li class="active">
+    <a href="./">Agent QuickStart</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../agents/">Fixie Agent API</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../agent-protocol/">Agent Protocol</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python SDK <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../python-client-api/">Python Client API</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../python-agent-api/">Python Agent API</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../cli/">CLI</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="https://app.fixie.ai/static/docs/index.html">GraphQL</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../architecture/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../agents/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/fixie-ai/fixie-sdk">fixie-ai/fixie-sdk</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#fixie-agent-quickstart">Fixie Agent Quickstart</a></li>
+            <li class="second-level"><a href="#create-a-fixie-agent">Create a Fixie Agent</a></li>
+                
+            <li class="second-level"><a href="#write-the-agent-code">Write the Agent code</a></li>
+                
+            <li class="second-level"><a href="#test-your-agent">Test your Agent</a></li>
+                
+            <li class="second-level"><a href="#deploy-your-agent">Deploy your Agent</a></li>
+                
+            <li class="second-level"><a href="#implementing-agents-without-python">Implementing Agents without Python</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="fixie-agent-quickstart">Fixie Agent Quickstart</h1>
+<p>Fixie allows you to extend the capabilities of the Fixie Platform by building your own
+<strong>Agents</strong>, which are specialized software components that combine a set of <strong>few-shot examples</strong>
+with <strong>code</strong> to invoke external systems. We call this combination of few-shots coupled with code 
+<strong>Code Shots</strong> (clever, eh?).</p>
+<p>You can implement Fixie Agents in any programming language, however, the Fixie SDK currently
+provides bindings only for Python. See the <a href="../agent-protocol/">Agent Protocol</a> for details
+on implementing your own Agent in a language other than Python. We'll be shipping bindings for
+other languages soon!</p>
+<h2 id="create-a-fixie-agent">Create a Fixie Agent</h2>
+<p>The first step is to create a new Agent directory using the <code>fixie init</code> command:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>myagent
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>myagent
+$<span class="w"> </span>fixie<span class="w"> </span>init
+Handle<span class="w"> </span><span class="o">[</span>myagent<span class="o">]</span>:<span class="w"> </span>
+Description<span class="w"> </span><span class="o">[]</span>:<span class="w"> </span>A<span class="w"> </span>simple<span class="w"> </span><span class="nb">test</span><span class="w"> </span>agent.
+Entry<span class="w"> </span>point<span class="w"> </span><span class="o">[</span>main:agent<span class="o">]</span>:<span class="w"> </span>
+More<span class="w"> </span>info<span class="w"> </span>url<span class="w"> </span><span class="o">[]</span>:<span class="w"> </span>
+Public<span class="w"> </span><span class="o">[</span>False<span class="o">]</span>:<span class="w"> </span>
+</code></pre></div>
+
+<p><code>fixie init</code> will prompt you to enter some information about your Agent. The Agent <strong>Handle</strong>
+is its unique identifier, and is used to identify the Agent in the Fixie Platform. 
+The <strong>Description</strong> is an optional plain-text description of the Agent's abilities.
+The <strong>Entry point</strong> is the name of the Python module that contains the Agent code, which
+we will create in the next step below. The <strong>More info url</strong> is an optional URL that
+you can provide that provides more information about the Agent; this can point to any website.
+The <strong>Public</strong> flag indicates whether the Agent should be publicly visible in the Fixie
+Platform for other users. If you set this to <code>True</code>, then anyone can use your Agent in their own applications.</p>
+<p>Running <code>fixie init</code> will create the file <code>agent.yaml</code> in the current directory, containing
+metadata on the Agent.</p>
+<h2 id="write-the-agent-code">Write the Agent code</h2>
+<p>Next, paste the following code into a file called <code>main.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">fixieai</span>
+
+<span class="n">BASE_PROMPT</span> <span class="o">=</span> <span class="s2">&quot;I am a simple agent that generates a random number between two given values.&quot;</span>
+<span class="n">FEW_SHOTS</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Q: Generate a random number between 0 and 19.</span>
+<span class="s2">Ask Func[genrand]: 0, 19</span>
+<span class="s2">Func[genrand] says: 17</span>
+<span class="s2">A: The random number is 17.</span>
+
+<span class="s2">Q: Generate a random value from 5 to 10, inclusive.</span>
+<span class="s2">Ask Func[genrand]: 5, 10</span>
+<span class="s2">Func[genrand] says: 8</span>
+<span class="s2">A: The random number is 8.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">fixieai</span><span class="o">.</span><span class="n">CodeShotAgent</span><span class="p">(</span><span class="n">BASE_PROMPT</span><span class="p">,</span> <span class="n">FEW_SHOTS</span><span class="p">)</span>
+
+<span class="nd">@agent</span><span class="o">.</span><span class="n">register_func</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">genrand</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="n">fixieai</span><span class="o">.</span><span class="n">Message</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">low</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">low</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">high</span><span class="p">)))</span>
+</code></pre></div>
+
+<p>The code consists of two main parts:</p>
+<ul>
+<li><strong><code>BASE_PROMPT</code></strong> and <strong><code>FEW_SHOTS</code></strong>: These are the few-shot examples that define the Agent's
+  purpose and behavior. The few-shots are used to providing examples to the underlying
+  Large Language Model, such as GPT-3, as well as to provide the Fixie Platform information
+  on what kinds of queries this Agent can support.</li>
+<li><strong>Code snippets</strong>: These are the functions that are invoked by the Code Shots. The
+  code snippets are registered with the agent using the <code>register_func</code> decorator.</li>
+</ul>
+<p>In the <code>FEW_SHOTS</code> string, the <code>Func[genrand]</code> keyword indicates that the function
+<code>genrand</code> should be invoked when the output of the underlying LLM starts with this string.
+The values following <code>Ask Func[genrand]:</code> are passed to the function as the <code>query.text</code>
+parameter. In this case, the function parses out the values and returns a random number
+between those two values.</p>
+<h2 id="test-your-agent">Test your Agent</h2>
+<p>To test your Agent, you have two options: (1) Run it on your local machine using the
+<code>fixie agent serve</code> command, or (2) Deploy it to the Fixie platform using the
+<code>fixie agent deploy</code> command. Using <code>fixie agent serve</code> allows you to debug the agent as
+it runs locally, but is generally only advisable for initial development. </p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>fixie<span class="w"> </span>serve
+Opening<span class="w"> </span>tunnel<span class="w"> </span>to<span class="w"> </span><span class="m">0</span>.0.0.0:8181...
+Tunneling<span class="w"> </span><span class="m">0</span>.0.0.0:8181<span class="w"> </span>via<span class="w"> </span>https://df03e6d61a9f11.lhr.life
+</code></pre></div>
+
+<p>When running <code>fixie agent serve</code>, a tunnel is set up that allows the Agent, running on your
+local machine, to be accessed from the Fixie Platform. The URL of the tunnel is printed
+on the console. If you quit the <code>fixie agent serve</code> process (e.g., by pressing Ctrl-C), the
+tunnel is torn down and your Agent is no longer accessible.</p>
+<p>Now you can use <code>fixie console</code> to send a message to your Agent directly:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>fixie<span class="w"> </span>console
+Welcome<span class="w"> </span>to<span class="w"> </span>Fixie!
+Connected<span class="w"> </span>to:<span class="w"> </span>https://app.fixie.ai/sessions/stormy-luxuriant-ferryboat
+fixie<span class="w"> </span>🦊❯<span class="w"> </span>@myagent<span class="w"> </span>Generate<span class="w"> </span>a<span class="w"> </span>random<span class="w"> </span>number<span class="w"> </span>between<span class="w"> </span><span class="m">10</span><span class="w"> </span>and<span class="w"> </span><span class="m">50</span>
+<span class="w">   </span>@user:<span class="w"> </span>@mdw/myagent<span class="w"> </span>Generate<span class="w"> </span>a<span class="w"> </span>random<span class="w"> </span>number<span class="w"> </span>between<span class="w"> </span><span class="m">10</span><span class="w"> </span>and<span class="w"> </span><span class="m">50</span>
+<span class="w">   </span>@myagent:<span class="w"> </span>Generate<span class="w"> </span>a<span class="w"> </span>random<span class="w"> </span>number<span class="w"> </span>between<span class="w"> </span><span class="m">10</span><span class="w"> </span>and<span class="w"> </span><span class="m">50</span>
+<span class="w">   </span>@myagent:<span class="w"> </span>Ask<span class="w"> </span>Func:<span class="w"> </span><span class="m">10</span>,<span class="w"> </span><span class="m">50</span>
+<span class="w">   </span>@myagent:<span class="w"> </span>Func<span class="w"> </span>says:<span class="w"> </span><span class="m">48</span>
+<span class="w">   </span>@myagent:<span class="w"> </span>The<span class="w"> </span>random<span class="w"> </span>number<span class="w"> </span>is<span class="w"> </span><span class="m">48</span>.
+<span class="m">1</span>❯<span class="w"> </span>The<span class="w"> </span>random<span class="w"> </span>number<span class="w"> </span>is<span class="w"> </span><span class="m">48</span>.
+</code></pre></div>
+
+<p>In the <code>fixie agent serve</code> window, you should also see debugging output showing that your
+Agent code was invoked with a <code>POST</code> request to the <code>/genrand</code> endpoint.</p>
+<h2 id="deploy-your-agent">Deploy your Agent</h2>
+<p>Agents can be deployed on any web server that supports Python, however, you can also
+deploy your Agent directly to the Fixie platform, which takes care of hosting the Agent
+functions in the cloud.</p>
+<p>For this, all you need to do is run <code>fixie agent deploy</code>:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>fixie<span class="w"> </span>agent<span class="w"> </span>deploy
+✅<span class="w"> </span>Deploying...
+✅<span class="w"> </span>Refreshing...
+</code></pre></div>
+
+<p>This will take about a minute to run. Once deployed, you can use your Agent via the Fixie web UI
+or the <code>fixie console</code> tool.</p>
+<h2 id="implementing-agents-without-python">Implementing Agents without Python</h2>
+<p>See <a href="../agent-protocol/">Agent Protocol</a> for details on how to implement an Agent directly
+in a language other than Python, as well as <a href="../agents/">Agent API</a> for details on the
+complete Fixie Agent API.</p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = ".."</script>
+    
+    <script src="../js/base.js"></script>
+    <script src="../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

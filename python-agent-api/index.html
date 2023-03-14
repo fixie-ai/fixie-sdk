@@ -1,0 +1,3159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="API and SDK documentation for Fixie">
+    
+    <link rel="canonical" href="https://fixie.ai/python-agent-api/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    
+    <title>Python Agent API - Fixie Developer Portal</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../css/base.min.css" rel="stylesheet">
+    <link href="../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+    <link href="../assets/_mkdocstrings.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="..">Fixie Developer Portal</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Introduction</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../architecture/">Architecture</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Agents <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../agent-quickstart/">Agent QuickStart</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../agents/">Fixie Agent API</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../agent-protocol/">Agent Protocol</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python SDK <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../python-client-api/">Python Client API</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Python Agent API</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../cli/">CLI</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="https://app.fixie.ai/static/docs/index.html">GraphQL</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../python-client-api/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../cli/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/fixie-ai/fixie-sdk">fixie-ai/fixie-sdk</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#fixie-agent-python-api-reference">Fixie Agent Python API Reference</a></li>
+            <li class="second-level"><a href="#fixieai.agents.api">fixieai.agents.api</a></li>
+                
+            <li class="second-level"><a href="#fixieai.agents.api.AgentQuery">AgentQuery</a></li>
+                
+            <li class="second-level"><a href="#fixieai.agents.api.AgentResponse">AgentResponse</a></li>
+                
+            <li class="second-level"><a href="#fixieai.agents.api.Embed">Embed</a></li>
+                
+                <li class="third-level"><a href="#fixieai.agents.api.Embed.content">content</a></li>
+                <li class="third-level"><a href="#fixieai.agents.api.Embed.text">text</a></li>
+            <li class="second-level"><a href="#fixieai.agents.api.Message">Message</a></li>
+                
+            <li class="second-level"><a href="#fixieai.agents.code_shot">fixieai.agents.code_shot</a></li>
+                
+            <li class="second-level"><a href="#fixieai.agents.code_shot.AgentMetadata">AgentMetadata</a></li>
+                
+            <li class="second-level"><a href="#fixieai.agents.code_shot.CodeShotAgent">CodeShotAgent</a></li>
+                
+                <li class="third-level"><a href="#fixieai.agents.code_shot.CodeShotAgent.api_router">api_router()</a></li>
+                <li class="third-level"><a href="#fixieai.agents.code_shot.CodeShotAgent.app">app()</a></li>
+                <li class="third-level"><a href="#fixieai.agents.code_shot.CodeShotAgent.register_func">register_func()</a></li>
+                <li class="third-level"><a href="#fixieai.agents.code_shot.CodeShotAgent.serve">serve()</a></li>
+            <li class="second-level"><a href="#fixieai.agents.oauth">fixieai.agents.oauth</a></li>
+                
+            <li class="second-level"><a href="#fixieai.agents.oauth.OAuthHandler">OAuthHandler</a></li>
+                
+                <li class="third-level"><a href="#fixieai.agents.oauth.OAuthHandler.authorize">authorize()</a></li>
+                <li class="third-level"><a href="#fixieai.agents.oauth.OAuthHandler.get_authorization_url">get_authorization_url()</a></li>
+                <li class="third-level"><a href="#fixieai.agents.oauth.OAuthHandler.user_token">user_token()</a></li>
+            <li class="second-level"><a href="#fixieai.agents.oauth.OAuthParams">OAuthParams</a></li>
+                
+                <li class="third-level"><a href="#fixieai.agents.oauth.OAuthParams.from_client_secrets_file">from_client_secrets_file()</a></li>
+            <li class="second-level"><a href="#fixieai.agents.user_storage">fixieai.agents.user_storage</a></li>
+                
+            <li class="second-level"><a href="#fixieai.agents.user_storage.UserStorage">UserStorage</a></li>
+                
+            <li class="second-level"><a href="#fixieai.agents.user_storage.from_json">from_json()</a></li>
+                
+            <li class="second-level"><a href="#fixieai.agents.user_storage.from_json_type">from_json_type()</a></li>
+                
+            <li class="second-level"><a href="#fixieai.agents.user_storage.to_json">to_json()</a></li>
+                
+            <li class="second-level"><a href="#fixieai.agents.user_storage.to_json_type">to_json_type()</a></li>
+                
+            <li class="second-level"><a href="#fixieai.agents.utils">fixieai.agents.utils</a></li>
+                
+            <li class="second-level"><a href="#fixieai.agents.utils.FewshotLinePattern">FewshotLinePattern</a></li>
+                
+                <li class="third-level"><a href="#fixieai.agents.utils.FewshotLinePattern.pattern">pattern()</a></li>
+            <li class="second-level"><a href="#fixieai.agents.utils.strip_prompt_lines">strip_prompt_lines()</a></li>
+                
+            <li class="second-level"><a href="#fixieai.agents.utils.validate_code_shot_agent">validate_code_shot_agent()</a></li>
+                
+            <li class="second-level"><a href="#fixieai.agents.utils.validate_registered_pyfunc">validate_registered_pyfunc()</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="fixie-agent-python-api-reference">Fixie Agent Python API Reference</h1>
+
+
+<div class="doc doc-object doc-module">
+
+
+<a id="fixieai.agents.api"></a>
+  <div class="doc doc-contents first">
+  
+      <p>This module holds objects that represent the API interface by which Agents talk to
+Fixie ecosystem.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="fixieai.agents.api.AgentQuery" class="doc doc-heading">
+        <code>AgentQuery</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>A standalone query sent to a Fixie agent.</p>
+
+
+        <details class="quote">
+          <summary>Source code in <code>fixieai/agents/api.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@pydantic_dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">AgentQuery</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A standalone query sent to a Fixie agent.&quot;&quot;&quot;</span>
+
+    <span class="c1"># The contents of the query.</span>
+    <span class="n">message</span><span class="p">:</span> <span class="n">Message</span>
+
+    <span class="c1"># This is an access token associated with the user for whom this query was</span>
+    <span class="c1"># created. Agents wishing to make queries to other agents, or to other</span>
+    <span class="c1"># Fixie services, should carry this token in the query so that it</span>
+    <span class="c1"># can be tied back to the original user.</span>
+    <span class="n">access_token</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="fixieai.agents.api.AgentResponse" class="doc doc-heading">
+        <code>AgentResponse</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>A response message from an Agent.</p>
+
+
+        <details class="quote">
+          <summary>Source code in <code>fixieai/agents/api.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@pydantic_dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">AgentResponse</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A response message from an Agent.&quot;&quot;&quot;</span>
+
+    <span class="c1"># The text of the response message.</span>
+    <span class="n">message</span><span class="p">:</span> <span class="n">Message</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="fixieai.agents.api.Embed" class="doc doc-heading">
+        <code>Embed</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>An Embed represents a binary object attached to a Message.</p>
+
+
+        <details class="quote">
+          <summary>Source code in <code>fixieai/agents/api.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@pydantic_dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">Embed</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;An Embed represents a binary object attached to a Message.&quot;&quot;&quot;</span>
+
+    <span class="c1"># The MIME content type of the object, e.g., &quot;image/png&quot; or &quot;application/json&quot;.</span>
+    <span class="n">content_type</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1"># A public URL where the object can be downloaded. This can be a data URI.</span>
+    <span class="n">uri</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">content</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Retrieves the content for this Embed object.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">uri</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;data:&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uri</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uri</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+
+    <span class="nd">@content</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the content of the Embed object as a data URI.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uri</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;data:base64,</span><span class="si">{</span><span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Retrieves the content of the Embed object as a string.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+
+    <span class="nd">@text</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the content of the Embed object as a string.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fixieai.agents.api.Embed.content" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">content</span><span class="p">:</span> <span class="nb">bytes</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-writable"><code>writable</code></small>
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Retrieves the content for this Embed object.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="fixieai.agents.api.Embed.text" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">text</span><span class="p">:</span> <span class="nb">str</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-writable"><code>writable</code></small>
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Retrieves the content of the Embed object as a string.</p>
+  </div>
+
+</div>
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="fixieai.agents.api.Message" class="doc doc-heading">
+        <code>Message</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>A Message represents a single message sent to a Fixie agent.</p>
+
+
+        <details class="quote">
+          <summary>Source code in <code>fixieai/agents/api.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@pydantic_dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">Message</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A Message represents a single message sent to a Fixie agent.&quot;&quot;&quot;</span>
+
+    <span class="c1"># The text of the message.</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1"># A mapping of embed keys to Embed objects.</span>
+    <span class="n">embeds</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Embed</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+<a id="fixieai.agents.code_shot"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="fixieai.agents.code_shot.AgentMetadata" class="doc doc-heading">
+        <code>AgentMetadata</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>Metadata for a Fixie CodeShot Agent.</p>
+<p>This will get sent to the Fixie platform upon handshake.</p>
+
+
+        <details class="quote">
+          <summary>Source code in <code>fixieai/agents/code_shot.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@pydantic_dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">AgentMetadata</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Metadata for a Fixie CodeShot Agent.</span>
+
+<span class="sd">    This will get sent to the Fixie platform upon handshake.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">base_prompt</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">few_shots</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">corpora</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">corpora</span><span class="o">.</span><span class="n">DocumentCorpus</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">conversational</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">utils</span><span class="o">.</span><span class="n">strip_prompt_lines</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">utils</span><span class="o">.</span><span class="n">validate_code_shot_agent</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="fixieai.agents.code_shot.CodeShotAgent" class="doc doc-heading">
+        <code>CodeShotAgent</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>A CodeShot agent.</p>
+<p>To make a CodeShot agent, simply pass a BASE_PROMPT and FEW_SHOTS:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">BASE_PROMPT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">&quot;A summary of what this agent does; how it does it; and its</span>
+<span class="nv">personality</span><span class="err">&quot;</span>
+
+<span class="err">FEW_SHOTS = &#39;&#39;&#39;</span>
+<span class="err">Q: &lt;Sample query that this agent supports&gt;</span>
+<span class="err">A: &lt;Desired response for this query&gt;</span>
+
+<span class="err">Q: &lt;Another sample query&gt;</span>
+<span class="err">A: &lt;Desired response for this query&gt;</span>
+<span class="err">&#39;&#39;&#39;</span>
+
+<span class="err">agent = CodeShotAgent(BASE_PROMPT, FEW_SHOTS)</span>
+</code></pre></div>
+
+<p>You can have FEW_SHOTS as a single string of all your few-shots separated by 2 new
+lines, or as an explicit list of one few-shot per index.</p>
+<p>Your few-shots may reach out to other Agents in the fixie ecosystem by
+"Ask Agent[agent_id]: <query to pass>", or reach out to some python functions
+by "Ask Func[func_name]: <query to pass>".</p>
+<p>There are a series of default runtime <code>Func</code>s provided by the platform available for
+your agents to consume. For a full list of default runtime <code>Func</code>s, refer to:
+    http://docs.fixie.ai/XXX</p>
+<p>You may also need to write your own python functions here to be consumed by your
+agent. To make a function accessible by an agent, you'd need to register it by
+<code>@agent.register_func</code>. Example:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">@agent.register_func</span>
+<span class="n">def</span><span class="w"> </span><span class="n">func_name</span><span class="p">(</span><span class="k">query</span><span class="o">:</span><span class="w"> </span><span class="n">fixieai</span><span class="p">.</span><span class="n">Message</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ReturnType</span><span class="o">:</span>
+<span class="w">    </span><span class="p">...</span>
+
+<span class="p">,</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">ReturnType</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">one</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n n-Quoted">`str`</span><span class="p">,</span><span class="w"> </span><span class="n n-Quoted">`fixieai.Message`</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n n-Quoted">`fixie.AgentResponse`</span><span class="p">.</span>
+</code></pre></div>
+
+<p>Note that in the above, we are using the decorator <code>@agent.register_func</code> to
+register this function with the agent instance we just created.</p>
+<p>To check out the default <code>Func</code>s that are provided in Fixie, see:
+    http://docs.fixie.ai/XXX</p>
+
+
+        <details class="quote">
+          <summary>Source code in <code>fixieai/agents/code_shot.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">CodeShotAgent</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A CodeShot agent.</span>
+
+<span class="sd">    To make a CodeShot agent, simply pass a BASE_PROMPT and FEW_SHOTS:</span>
+
+<span class="sd">        BASE_PROMPT = &quot;A summary of what this agent does; how it does it; and its</span>
+<span class="sd">        personality&quot;</span>
+
+<span class="sd">        FEW_SHOTS = &#39;&#39;&#39;</span>
+<span class="sd">        Q: &lt;Sample query that this agent supports&gt;</span>
+<span class="sd">        A: &lt;Desired response for this query&gt;</span>
+
+<span class="sd">        Q: &lt;Another sample query&gt;</span>
+<span class="sd">        A: &lt;Desired response for this query&gt;</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+<span class="sd">        agent = CodeShotAgent(BASE_PROMPT, FEW_SHOTS)</span>
+
+<span class="sd">    You can have FEW_SHOTS as a single string of all your few-shots separated by 2 new</span>
+<span class="sd">    lines, or as an explicit list of one few-shot per index.</span>
+
+<span class="sd">    Your few-shots may reach out to other Agents in the fixie ecosystem by</span>
+<span class="sd">    &quot;Ask Agent[agent_id]: &lt;query to pass&gt;&quot;, or reach out to some python functions</span>
+<span class="sd">    by &quot;Ask Func[func_name]: &lt;query to pass&gt;&quot;.</span>
+
+<span class="sd">    There are a series of default runtime `Func`s provided by the platform available for</span>
+<span class="sd">    your agents to consume. For a full list of default runtime `Func`s, refer to:</span>
+<span class="sd">        http://docs.fixie.ai/XXX</span>
+
+<span class="sd">    You may also need to write your own python functions here to be consumed by your</span>
+<span class="sd">    agent. To make a function accessible by an agent, you&#39;d need to register it by</span>
+<span class="sd">    `@agent.register_func`. Example:</span>
+
+<span class="sd">        @agent.register_func</span>
+<span class="sd">        def func_name(query: fixieai.Message) -&gt; ReturnType:</span>
+<span class="sd">            ...</span>
+
+<span class="sd">        , where ReturnType is one of `str`, `fixieai.Message`, or `fixie.AgentResponse`.</span>
+
+<span class="sd">    Note that in the above, we are using the decorator `@agent.register_func` to</span>
+<span class="sd">    register this function with the agent instance we just created.</span>
+
+<span class="sd">    To check out the default `Func`s that are provided in Fixie, see:</span>
+<span class="sd">        http://docs.fixie.ai/XXX</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">base_prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">few_shots</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+        <span class="n">corpora</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">corpora</span><span class="o">.</span><span class="n">DocumentCorpus</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">conversational</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">oauth_params</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">oauth</span><span class="o">.</span><span class="n">OAuthParams</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">few_shots</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">few_shots</span> <span class="o">=</span> <span class="n">_split_few_shots</span><span class="p">(</span><span class="n">few_shots</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_prompt</span> <span class="o">=</span> <span class="n">base_prompt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">few_shots</span> <span class="o">=</span> <span class="n">few_shots</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">corpora</span> <span class="o">=</span> <span class="n">corpora</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conversational</span> <span class="o">=</span> <span class="n">conversational</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">oauth_params</span> <span class="o">=</span> <span class="n">oauth_params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_funcs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_jwks_client</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">PyJWKClient</span><span class="p">(</span><span class="n">constants</span><span class="o">.</span><span class="n">FIXIE_JWKS_URL</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">oauth_params</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Register default Funcs.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">register_func</span><span class="p">(</span><span class="n">_oauth</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">serve</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">agent_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8181</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Starts serving the current agent at `{host}:{port}` via uvicorn.</span>
+
+<span class="sd">        If agent_id is specified, this pings Fixie upon startup to fetch the latest prompt and fewshots.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            agent_id: The qualified agent id (`username/handle`)</span>
+<span class="sd">            host: The address to start listening at.</span>
+<span class="sd">            port: The port number to start listening at.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">uvicorn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="p">(</span><span class="n">agent_id</span><span class="p">),</span> <span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">app</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agent_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fastapi</span><span class="o">.</span><span class="n">FastAPI</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a fastapi.FastAPI application that serves the agent.</span>
+
+<span class="sd">        If agent_id is specified, this pings Fixie upon startup to fetch the latest prompt and fewshots.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            agent_id: The qualified agent id (`username/handle`)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fast_api</span> <span class="o">=</span> <span class="n">fastapi</span><span class="o">.</span><span class="n">FastAPI</span><span class="p">()</span>
+        <span class="n">fast_api</span><span class="o">.</span><span class="n">include_router</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api_router</span><span class="p">())</span>
+        <span class="n">agent_id</span> <span class="o">=</span> <span class="n">agent_id</span>
+        <span class="k">if</span> <span class="n">agent_id</span><span class="p">:</span>
+            <span class="n">fast_api</span><span class="o">.</span><span class="n">add_event_handler</span><span class="p">(</span>
+                <span class="s2">&quot;startup&quot;</span><span class="p">,</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">_ping_fixie_async</span><span class="p">,</span> <span class="n">agent_id</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">fast_api</span>
+
+    <span class="k">def</span> <span class="nf">api_router</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fastapi</span><span class="o">.</span><span class="n">APIRouter</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a fastapi.APIRouter object that serves the agent.&quot;&quot;&quot;</span>
+        <span class="n">router</span> <span class="o">=</span> <span class="n">fastapi</span><span class="o">.</span><span class="n">APIRouter</span><span class="p">()</span>
+        <span class="n">router</span><span class="o">.</span><span class="n">add_api_route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handshake</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+        <span class="n">router</span><span class="o">.</span><span class="n">add_api_route</span><span class="p">(</span><span class="s2">&quot;/</span><span class="si">{func_name}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_serve_func</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">router</span>
+
+    <span class="k">def</span> <span class="nf">register_func</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">func_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;A function decorator to register `Func`s with this agent.</span>
+
+<span class="sd">        This decorator will not change the callable itself.</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            agent = CodeShotAgent(base_prompt, few_shots)</span>
+
+<span class="sd">            @agent.register_func</span>
+<span class="sd">            def func(query):</span>
+<span class="sd">                ...</span>
+
+<span class="sd">        Optional Decorator Args:</span>
+<span class="sd">            func_name: Optional function name to register this function by. If unset,</span>
+<span class="sd">                the function name will be used.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">func</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Func is not passed in. It&#39;s the decorator being created.</span>
+            <span class="k">return</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">register_func</span><span class="p">,</span> <span class="n">func_name</span><span class="o">=</span><span class="n">func_name</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">func_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">ACCEPTED_FUNC_NAMES</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span><span class="n">func_name</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Function names may only be alphanumerics, got </span><span class="si">{</span><span class="n">func_name</span><span class="si">!r}</span><span class="s2">.&quot;</span>
+                <span class="p">)</span>
+
+        <span class="n">utils</span><span class="o">.</span><span class="n">validate_registered_pyfunc</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">func_name</span> <span class="ow">or</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_funcs</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Func[</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">] is already registered with agent.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_funcs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span>
+        <span class="k">return</span> <span class="n">func</span>
+
+    <span class="k">def</span> <span class="nf">_handshake</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fastapi</span><span class="o">.</span><span class="n">Response</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the agent&#39;s metadata in YAML format.&quot;&quot;&quot;</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">AgentMetadata</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">base_prompt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">few_shots</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">corpora</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">conversational</span>
+        <span class="p">)</span>
+        <span class="n">yaml_content</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">dataclasses</span><span class="o">.</span><span class="n">asdict</span><span class="p">(</span><span class="n">metadata</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">fastapi</span><span class="o">.</span><span class="n">Response</span><span class="p">(</span><span class="n">yaml_content</span><span class="p">,</span> <span class="n">media_type</span><span class="o">=</span><span class="s2">&quot;application/yaml&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_serve_func</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">func_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">query</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">AgentQuery</span><span class="p">,</span>
+        <span class="n">credentials</span><span class="p">:</span> <span class="n">fastapi</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">HTTPAuthorizationCredentials</span> <span class="o">=</span> <span class="n">fastapi</span><span class="o">.</span><span class="n">Depends</span><span class="p">(</span>
+            <span class="n">fastapi</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">HTTPBearer</span><span class="p">()</span>
+        <span class="p">),</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">api</span><span class="o">.</span><span class="n">AgentResponse</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Verifies the request is a valid request from Fixie, and dispatches it to</span>
+<span class="sd">        the appropriate function.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">token_claims</span> <span class="o">=</span> <span class="n">_VerifiedTokenClaims</span><span class="o">.</span><span class="n">from_token</span><span class="p">(</span>
+            <span class="n">credentials</span><span class="o">.</span><span class="n">credentials</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_jwks_client</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">token_claims</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">fastapi</span><span class="o">.</span><span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">403</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Invalid token&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="p">(</span>
+            <span class="n">query</span><span class="o">.</span><span class="n">access_token</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="ow">and</span> <span class="n">query</span><span class="o">.</span><span class="n">access_token</span> <span class="o">!=</span> <span class="n">credentials</span><span class="o">.</span><span class="n">credentials</span>
+        <span class="p">):</span>
+            <span class="k">raise</span> <span class="n">fastapi</span><span class="o">.</span><span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">403</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Mismatched tokens&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">query</span><span class="o">.</span><span class="n">access_token</span> <span class="o">=</span> <span class="n">credentials</span><span class="o">.</span><span class="n">credentials</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">pyfunc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_funcs</span><span class="p">[</span><span class="n">func_name</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">fastapi</span><span class="o">.</span><span class="n">HTTPException</span><span class="p">(</span>
+                <span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Func[</span><span class="si">{</span><span class="n">func_name</span><span class="si">}</span><span class="s2">] doesn&#39;t exist&quot;</span>
+            <span class="p">)</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_func_kwargs</span><span class="p">(</span>
+            <span class="n">query</span><span class="p">,</span> <span class="n">token_claims</span><span class="p">,</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">pyfunc</span><span class="p">)</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">pyfunc</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_wrap_with_agent_response</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Func[</span><span class="si">{</span><span class="n">func_name</span><span class="si">}</span><span class="s2">] returned unexpected output of type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">output</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_func_kwargs</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">query</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">AgentQuery</span><span class="p">,</span>
+        <span class="n">token_claims</span><span class="p">:</span> <span class="n">_VerifiedTokenClaims</span><span class="p">,</span>
+        <span class="n">arg_names</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="n">kwargs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">arg_name</span> <span class="ow">in</span> <span class="n">arg_names</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">arg_name</span> <span class="o">==</span> <span class="s2">&quot;query&quot;</span><span class="p">:</span>
+                <span class="n">kwargs</span><span class="p">[</span><span class="n">arg_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">message</span>
+            <span class="k">elif</span> <span class="n">arg_name</span> <span class="o">==</span> <span class="s2">&quot;user_storage&quot;</span><span class="p">:</span>
+                <span class="n">kwargs</span><span class="p">[</span><span class="n">arg_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_storage</span><span class="o">.</span><span class="n">UserStorage</span><span class="p">(</span>
+                    <span class="n">query</span><span class="p">,</span> <span class="n">token_claims</span><span class="o">.</span><span class="n">agent_id</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="n">arg_name</span> <span class="o">==</span> <span class="s2">&quot;oauth_handler&quot;</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">oauth_params</span><span class="p">,</span> <span class="s2">&quot;oauth_params is not set&quot;</span>
+                <span class="n">kwargs</span><span class="p">[</span><span class="n">arg_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">oauth</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">oauth_params</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">token_claims</span><span class="o">.</span><span class="n">agent_id</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found unknown argument </span><span class="si">{</span><span class="n">arg_name</span><span class="si">!r}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">kwargs</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.agents.code_shot.CodeShotAgent.api_router" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">api_router</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns a fastapi.APIRouter object that serves the agent.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>fixieai/agents/code_shot.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">api_router</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fastapi</span><span class="o">.</span><span class="n">APIRouter</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a fastapi.APIRouter object that serves the agent.&quot;&quot;&quot;</span>
+    <span class="n">router</span> <span class="o">=</span> <span class="n">fastapi</span><span class="o">.</span><span class="n">APIRouter</span><span class="p">()</span>
+    <span class="n">router</span><span class="o">.</span><span class="n">add_api_route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handshake</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+    <span class="n">router</span><span class="o">.</span><span class="n">add_api_route</span><span class="p">(</span><span class="s2">&quot;/</span><span class="si">{func_name}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_serve_func</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">router</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.agents.code_shot.CodeShotAgent.app" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">app</span><span class="p">(</span><span class="n">agent_id</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns a fastapi.FastAPI application that serves the agent.</p>
+<p>If agent_id is specified, this pings Fixie upon startup to fetch the latest prompt and fewshots.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>agent_id</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>The qualified agent id (<code>username/handle</code>)</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>fixieai/agents/code_shot.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">app</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agent_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">fastapi</span><span class="o">.</span><span class="n">FastAPI</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a fastapi.FastAPI application that serves the agent.</span>
+
+<span class="sd">    If agent_id is specified, this pings Fixie upon startup to fetch the latest prompt and fewshots.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        agent_id: The qualified agent id (`username/handle`)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fast_api</span> <span class="o">=</span> <span class="n">fastapi</span><span class="o">.</span><span class="n">FastAPI</span><span class="p">()</span>
+    <span class="n">fast_api</span><span class="o">.</span><span class="n">include_router</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">api_router</span><span class="p">())</span>
+    <span class="n">agent_id</span> <span class="o">=</span> <span class="n">agent_id</span>
+    <span class="k">if</span> <span class="n">agent_id</span><span class="p">:</span>
+        <span class="n">fast_api</span><span class="o">.</span><span class="n">add_event_handler</span><span class="p">(</span>
+            <span class="s2">&quot;startup&quot;</span><span class="p">,</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">_ping_fixie_async</span><span class="p">,</span> <span class="n">agent_id</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">fast_api</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.agents.code_shot.CodeShotAgent.register_func" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">register_func</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">func_name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>A function decorator to register <code>Func</code>s with this agent.</p>
+<p>This decorator will not change the callable itself.</p>
+
+<details class="usage">
+  <summary>Usage</summary>
+  <p>agent = CodeShotAgent(base_prompt, few_shots)</p>
+<p>@agent.register_func
+def func(query):
+    ...</p>
+</details>
+<details class="optional-decorator-args">
+  <summary>Optional Decorator Args</summary>
+  <p>func_name: Optional function name to register this function by. If unset,
+    the function name will be used.</p>
+</details>
+      <details class="quote">
+        <summary>Source code in <code>fixieai/agents/code_shot.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">register_func</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">func_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A function decorator to register `Func`s with this agent.</span>
+
+<span class="sd">    This decorator will not change the callable itself.</span>
+
+<span class="sd">    Usage:</span>
+
+<span class="sd">        agent = CodeShotAgent(base_prompt, few_shots)</span>
+
+<span class="sd">        @agent.register_func</span>
+<span class="sd">        def func(query):</span>
+<span class="sd">            ...</span>
+
+<span class="sd">    Optional Decorator Args:</span>
+<span class="sd">        func_name: Optional function name to register this function by. If unset,</span>
+<span class="sd">            the function name will be used.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">func</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Func is not passed in. It&#39;s the decorator being created.</span>
+        <span class="k">return</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">register_func</span><span class="p">,</span> <span class="n">func_name</span><span class="o">=</span><span class="n">func_name</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">func_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ACCEPTED_FUNC_NAMES</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span><span class="n">func_name</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Function names may only be alphanumerics, got </span><span class="si">{</span><span class="n">func_name</span><span class="si">!r}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+
+    <span class="n">utils</span><span class="o">.</span><span class="n">validate_registered_pyfunc</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">func_name</span> <span class="ow">or</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_funcs</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Func[</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">] is already registered with agent.&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_funcs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span>
+    <span class="k">return</span> <span class="n">func</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.agents.code_shot.CodeShotAgent.serve" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">serve</span><span class="p">(</span><span class="n">agent_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8181</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Starts serving the current agent at <code>{host}:{port}</code> via uvicorn.</p>
+<p>If agent_id is specified, this pings Fixie upon startup to fetch the latest prompt and fewshots.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>agent_id</code></td>
+          <td>
+                <code><span title="typing.Optional">Optional</span>[str]</code>
+          </td>
+          <td><p>The qualified agent id (<code>username/handle</code>)</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>host</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The address to start listening at.</p></td>
+          <td>
+                <code>&#39;0.0.0.0&#39;</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>port</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>The port number to start listening at.</p></td>
+          <td>
+                <code>8181</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>fixieai/agents/code_shot.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">serve</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="n">agent_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8181</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Starts serving the current agent at `{host}:{port}` via uvicorn.</span>
+
+<span class="sd">    If agent_id is specified, this pings Fixie upon startup to fetch the latest prompt and fewshots.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        agent_id: The qualified agent id (`username/handle`)</span>
+<span class="sd">        host: The address to start listening at.</span>
+<span class="sd">        port: The port number to start listening at.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">uvicorn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="p">(</span><span class="n">agent_id</span><span class="p">),</span> <span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+<a id="fixieai.agents.oauth"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="fixieai.agents.oauth.OAuthHandler" class="doc doc-heading">
+        <code>OAuthHandler</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>OAuthHandler that wraps around a (OAuthParams, query) to authenticate.</p>
+
+<details class="this-client-object-provides-3-main-method">
+  <summary>This client object provides 3 main method</summary>
+  <ul>
+<li>credentials: Returns current user's OAuth access token, or None if they are
+    not authenticated.</li>
+<li>get_authorization_url: Returns a url that the users can click to
+    authenticate themselves.</li>
+<li>authorize: Exchanges a received access code (from auth redirect callback) for
+    an access token. If successful, user's storage is updated.</li>
+</ul>
+</details>
+
+        <details class="quote">
+          <summary>Source code in <code>fixieai/agents/oauth.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">OAuthHandler</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    OAuthHandler that wraps around a (OAuthParams, query) to authenticate.</span>
+
+<span class="sd">    This client object provides 3 main method:</span>
+<span class="sd">        * credentials: Returns current user&#39;s OAuth access token, or None if they are</span>
+<span class="sd">            not authenticated.</span>
+<span class="sd">        * get_authorization_url: Returns a url that the users can click to</span>
+<span class="sd">            authenticate themselves.</span>
+<span class="sd">        * authorize: Exchanges a received access code (from auth redirect callback) for</span>
+<span class="sd">            an access token. If successful, user&#39;s storage is updated.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># OAuth keys reserved in UserStorage</span>
+    <span class="n">OAUTH_STATE_KEY</span> <span class="o">=</span> <span class="s2">&quot;_oauth_state&quot;</span>
+    <span class="n">OAUTH_TOKEN_KEY</span> <span class="o">=</span> <span class="s2">&quot;_oauth_token&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">oauth_params</span><span class="p">:</span> <span class="n">OAuthParams</span><span class="p">,</span>
+        <span class="n">query</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">AgentQuery</span><span class="p">,</span>
+        <span class="n">agent_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span> <span class="o">=</span> <span class="n">user_storage</span><span class="o">.</span><span class="n">UserStorage</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">agent_id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_oauth_params</span> <span class="o">=</span> <span class="n">oauth_params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_agent_id</span> <span class="o">=</span> <span class="n">agent_id</span>
+
+    <span class="k">def</span> <span class="nf">get_authorization_url</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a URL to launch the authorization flow.&quot;&quot;&quot;</span>
+        <span class="n">auth_state</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_agent_id</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">secrets</span><span class="o">.</span><span class="n">token_urlsafe</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;response_type&quot;</span><span class="p">:</span> <span class="s2">&quot;code&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;access_type&quot;</span><span class="p">:</span> <span class="s2">&quot;offline&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;client_id&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_oauth_params</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+            <span class="s2">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_oauth_params</span><span class="o">.</span><span class="n">scopes</span><span class="p">),</span>
+            <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="n">auth_state</span><span class="p">,</span>
+            <span class="s2">&quot;redirect_uri&quot;</span><span class="p">:</span> <span class="n">constants</span><span class="o">.</span><span class="n">FIXIE_OAUTH_REDIRECT_URL</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_oauth_params</span><span class="o">.</span><span class="n">auth_uri</span> <span class="o">+</span> <span class="s2">&quot;?&quot;</span> <span class="o">+</span> <span class="n">parse</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="c1"># Store auth_state in UserStorage for validation later.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">OAUTH_STATE_KEY</span><span class="p">]</span> <span class="o">=</span> <span class="n">auth_state</span>
+        <span class="k">return</span> <span class="n">url</span>
+
+    <span class="k">def</span> <span class="nf">user_token</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns current user&#39;s OAuth credentials, or None if not authorized.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">creds_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">OAUTH_TOKEN_KEY</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">creds_json</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Value at user_storage[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">OAUTH_TOKEN_KEY</span><span class="si">!r}</span><span class="s2">] is &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;not an OAuthCredentials json: </span><span class="si">{</span><span class="n">creds_json</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">OAUTH_TOKEN_KEY</span><span class="p">]</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">creds</span> <span class="o">=</span> <span class="n">_OAuthCredentials</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="n">creds_json</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">LookupError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Value at user_storage[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">OAUTH_TOKEN_KEY</span><span class="si">!r}</span><span class="s2">] is &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;not a valid _OAuthCredentials json: </span><span class="si">{</span><span class="n">creds_json</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">OAUTH_TOKEN_KEY</span><span class="p">]</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="n">creds</span><span class="o">.</span><span class="n">expired</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Credentials expired at </span><span class="si">{</span><span class="n">creds</span><span class="o">.</span><span class="n">expiry</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">creds</span><span class="o">.</span><span class="n">refresh_token</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;No refresh token available&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">None</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Refreshing credentials...&quot;</span><span class="p">)</span>
+            <span class="n">creds</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_oauth_params</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_save_credentials</span><span class="p">(</span><span class="n">creds</span><span class="p">)</span>  <span class="c1"># Save refreshed token to UserStorage</span>
+        <span class="k">return</span> <span class="n">creds</span><span class="o">.</span><span class="n">access_token</span>
+
+    <span class="k">def</span> <span class="nf">authorize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Authorize the received access `code` against the client secret.</span>
+
+<span class="sd">        If successful, the credentials will be saved in user storage.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">expected_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">OAUTH_STATE_KEY</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">state</span> <span class="o">!=</span> <span class="n">expected_state</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Unknown state token, expected: </span><span class="si">{</span><span class="n">expected_state</span><span class="si">!r}</span><span class="s2"> actual: </span><span class="si">{</span><span class="n">state</span><span class="si">!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown state token&quot;</span><span class="p">)</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;grant_type&quot;</span><span class="p">:</span> <span class="s2">&quot;authorization_code&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;client_id&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_oauth_params</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+            <span class="s2">&quot;client_secret&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_oauth_params</span><span class="o">.</span><span class="n">client_secret</span><span class="p">,</span>
+            <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="n">code</span><span class="p">,</span>
+            <span class="s2">&quot;redirect_uri&quot;</span><span class="p">:</span> <span class="n">constants</span><span class="o">.</span><span class="n">FIXIE_OAUTH_REDIRECT_URL</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">_send_authorize_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_oauth_params</span><span class="o">.</span><span class="n">token_uri</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;OAuth auth request succeeded, lifetime=</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">expires_in</span><span class="si">}</span><span class="s2"> &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;refreshable=</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">refresh_token</span><span class="w"> </span><span class="ow">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="kc">None</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="n">credentials</span> <span class="o">=</span> <span class="n">_OAuthCredentials</span><span class="p">(</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">access_token</span><span class="p">,</span>
+            <span class="n">_get_expiry</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">expires_in</span><span class="p">),</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">refresh_token</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_save_credentials</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_save_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">credentials</span><span class="p">:</span> <span class="s2">&quot;_OAuthCredentials&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">OAUTH_TOKEN_KEY</span><span class="p">]</span> <span class="o">=</span> <span class="n">credentials</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.agents.oauth.OAuthHandler.authorize" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">authorize</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Authorize the received access <code>code</code> against the client secret.</p>
+<p>If successful, the credentials will be saved in user storage.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>fixieai/agents/oauth.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">authorize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Authorize the received access `code` against the client secret.</span>
+
+<span class="sd">    If successful, the credentials will be saved in user storage.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">expected_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">OAUTH_STATE_KEY</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">state</span> <span class="o">!=</span> <span class="n">expected_state</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Unknown state token, expected: </span><span class="si">{</span><span class="n">expected_state</span><span class="si">!r}</span><span class="s2"> actual: </span><span class="si">{</span><span class="n">state</span><span class="si">!r}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown state token&quot;</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;grant_type&quot;</span><span class="p">:</span> <span class="s2">&quot;authorization_code&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;client_id&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_oauth_params</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="s2">&quot;client_secret&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_oauth_params</span><span class="o">.</span><span class="n">client_secret</span><span class="p">,</span>
+        <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="n">code</span><span class="p">,</span>
+        <span class="s2">&quot;redirect_uri&quot;</span><span class="p">:</span> <span class="n">constants</span><span class="o">.</span><span class="n">FIXIE_OAUTH_REDIRECT_URL</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">_send_authorize_request</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_oauth_params</span><span class="o">.</span><span class="n">token_uri</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;OAuth auth request succeeded, lifetime=</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">expires_in</span><span class="si">}</span><span class="s2"> &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;refreshable=</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">refresh_token</span><span class="w"> </span><span class="ow">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="kc">None</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+    <span class="n">credentials</span> <span class="o">=</span> <span class="n">_OAuthCredentials</span><span class="p">(</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">access_token</span><span class="p">,</span>
+        <span class="n">_get_expiry</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">expires_in</span><span class="p">),</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">refresh_token</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_save_credentials</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.agents.oauth.OAuthHandler.get_authorization_url" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_authorization_url</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns a URL to launch the authorization flow.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>fixieai/agents/oauth.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_authorization_url</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a URL to launch the authorization flow.&quot;&quot;&quot;</span>
+    <span class="n">auth_state</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_agent_id</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">secrets</span><span class="o">.</span><span class="n">token_urlsafe</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;response_type&quot;</span><span class="p">:</span> <span class="s2">&quot;code&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;access_type&quot;</span><span class="p">:</span> <span class="s2">&quot;offline&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;client_id&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_oauth_params</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="s2">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_oauth_params</span><span class="o">.</span><span class="n">scopes</span><span class="p">),</span>
+        <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="n">auth_state</span><span class="p">,</span>
+        <span class="s2">&quot;redirect_uri&quot;</span><span class="p">:</span> <span class="n">constants</span><span class="o">.</span><span class="n">FIXIE_OAUTH_REDIRECT_URL</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_oauth_params</span><span class="o">.</span><span class="n">auth_uri</span> <span class="o">+</span> <span class="s2">&quot;?&quot;</span> <span class="o">+</span> <span class="n">parse</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="c1"># Store auth_state in UserStorage for validation later.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">OAUTH_STATE_KEY</span><span class="p">]</span> <span class="o">=</span> <span class="n">auth_state</span>
+    <span class="k">return</span> <span class="n">url</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.agents.oauth.OAuthHandler.user_token" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">user_token</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns current user's OAuth credentials, or None if not authorized.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>fixieai/agents/oauth.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">user_token</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns current user&#39;s OAuth credentials, or None if not authorized.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">creds_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">OAUTH_TOKEN_KEY</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">creds_json</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Value at user_storage[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">OAUTH_TOKEN_KEY</span><span class="si">!r}</span><span class="s2">] is &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;not an OAuthCredentials json: </span><span class="si">{</span><span class="n">creds_json</span><span class="si">!r}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">OAUTH_TOKEN_KEY</span><span class="p">]</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">creds</span> <span class="o">=</span> <span class="n">_OAuthCredentials</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="n">creds_json</span><span class="p">)</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">LookupError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Value at user_storage[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">OAUTH_TOKEN_KEY</span><span class="si">!r}</span><span class="s2">] is &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;not a valid _OAuthCredentials json: </span><span class="si">{</span><span class="n">creds_json</span><span class="si">!r}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_storage</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">OAUTH_TOKEN_KEY</span><span class="p">]</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">creds</span><span class="o">.</span><span class="n">expired</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Credentials expired at </span><span class="si">{</span><span class="n">creds</span><span class="o">.</span><span class="n">expiry</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">creds</span><span class="o">.</span><span class="n">refresh_token</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;No refresh token available&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Refreshing credentials...&quot;</span><span class="p">)</span>
+        <span class="n">creds</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_oauth_params</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_save_credentials</span><span class="p">(</span><span class="n">creds</span><span class="p">)</span>  <span class="c1"># Save refreshed token to UserStorage</span>
+    <span class="k">return</span> <span class="n">creds</span><span class="o">.</span><span class="n">access_token</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="fixieai.agents.oauth.OAuthParams" class="doc doc-heading">
+        <code>OAuthParams</code>
+
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>Encapsulates OAuth parameters, including secret, auth uri, and the scope.</p>
+<p>Agents who want to use OAuth flow, should declare their secrets via this object.</p>
+
+
+        <details class="quote">
+          <summary>Source code in <code>fixieai/agents/oauth.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<span class="k">class</span> <span class="nc">OAuthParams</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Encapsulates OAuth parameters, including secret, auth uri, and the scope.</span>
+
+<span class="sd">    Agents who want to use OAuth flow, should declare their secrets via this object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">client_secret</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">auth_uri</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">token_uri</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">scopes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_client_secrets_file</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span> <span class="n">secrets_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">scopes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;OAuthParams&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes OAuth from a secrets file, e.g., as obtained from the Google</span>
+<span class="sd">        Cloud Console.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            secrets_path: Path to a json file holding secret values.</span>
+<span class="sd">            scopes: A list of scopes that access needs to be requested for.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">secrets_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+            <span class="n">secrets</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;web&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;installed&quot;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+                <span class="n">secrets</span><span class="p">[</span><span class="s2">&quot;client_id&quot;</span><span class="p">],</span>
+                <span class="n">secrets</span><span class="p">[</span><span class="s2">&quot;client_secret&quot;</span><span class="p">],</span>
+                <span class="n">secrets</span><span class="p">[</span><span class="s2">&quot;auth_uri&quot;</span><span class="p">],</span>
+                <span class="n">secrets</span><span class="p">[</span><span class="s2">&quot;token_uri&quot;</span><span class="p">],</span>
+                <span class="n">scopes</span><span class="p">,</span>
+            <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.agents.oauth.OAuthParams.from_client_secrets_file" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">from_client_secrets_file</span><span class="p">(</span><span class="n">secrets_path</span><span class="p">,</span> <span class="n">scopes</span><span class="p">)</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Initializes OAuth from a secrets file, e.g., as obtained from the Google
+Cloud Console.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>secrets_path</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>Path to a json file holding secret values.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>scopes</code></td>
+          <td>
+                <code><span title="typing.List">List</span>[str]</code>
+          </td>
+          <td><p>A list of scopes that access needs to be requested for.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>fixieai/agents/oauth.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">from_client_secrets_file</span><span class="p">(</span>
+    <span class="bp">cls</span><span class="p">,</span> <span class="n">secrets_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">scopes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;OAuthParams&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Initializes OAuth from a secrets file, e.g., as obtained from the Google</span>
+<span class="sd">    Cloud Console.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        secrets_path: Path to a json file holding secret values.</span>
+<span class="sd">        scopes: A list of scopes that access needs to be requested for.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">secrets_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="n">secrets</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;web&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;installed&quot;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">secrets</span><span class="p">[</span><span class="s2">&quot;client_id&quot;</span><span class="p">],</span>
+            <span class="n">secrets</span><span class="p">[</span><span class="s2">&quot;client_secret&quot;</span><span class="p">],</span>
+            <span class="n">secrets</span><span class="p">[</span><span class="s2">&quot;auth_uri&quot;</span><span class="p">],</span>
+            <span class="n">secrets</span><span class="p">[</span><span class="s2">&quot;token_uri&quot;</span><span class="p">],</span>
+            <span class="n">scopes</span><span class="p">,</span>
+        <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+<a id="fixieai.agents.user_storage"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="fixieai.agents.user_storage.UserStorage" class="doc doc-heading">
+        <code>UserStorage</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="typing.MutableMapping">MutableMapping</span>[str, <span title="fixieai.agents.user_storage.UserStorageType">UserStorageType</span>]</code></p>
+
+  
+      <p>UserStorage provides a dict-like interface to a user-specific storage.</p>
+<p>Usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>from fixieai import AgentQuery, Message
+query = AgentQuery(
+...   Message("incoming query"),
+...   access_token="fake-access-token"
+... )
+storage = UserStorage(query, "fake-agent")
+storage["key"] = "value"
+storage["complex-key"] = {"key1": {"key2": [12, False, None, b"binary"]}}
+assert len(storage) == 2
+assert storage["complex-key"][&quot;key1&quot;]["key2"][-1] == b"binary"</p>
+</blockquote>
+</blockquote>
+</blockquote>
+
+
+        <details class="quote">
+          <summary>Source code in <code>fixieai/agents/user_storage.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">UserStorage</span><span class="p">(</span><span class="n">MutableMapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">UserStorageType</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;UserStorage provides a dict-like interface to a user-specific storage.</span>
+
+<span class="sd">    Usage:</span>
+<span class="sd">    &gt;&gt;&gt; from fixieai import AgentQuery, Message</span>
+<span class="sd">    &gt;&gt;&gt; query = AgentQuery(</span>
+<span class="sd">    ...   Message(&quot;incoming query&quot;),</span>
+<span class="sd">    ...   access_token=&quot;fake-access-token&quot;</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; storage = UserStorage(query, &quot;fake-agent&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; storage[&quot;key&quot;] = &quot;value&quot;</span>
+<span class="sd">    &gt;&gt;&gt; storage[&quot;complex-key&quot;] = {&quot;key1&quot;: {&quot;key2&quot;: [12, False, None, b&quot;binary&quot;]}}</span>
+<span class="sd">    &gt;&gt;&gt; assert len(storage) == 2</span>
+<span class="sd">    &gt;&gt;&gt; assert storage[&quot;complex-key&quot;][&quot;key1&quot;][&quot;key2&quot;][-1] == b&quot;binary&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">query</span><span class="p">:</span> <span class="s2">&quot;AgentQuery&quot;</span><span class="p">,</span>
+        <span class="n">agent_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">userstorage_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">constants</span><span class="o">.</span><span class="n">FIXIE_USER_STORAGE_URL</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="c1"># TODO(hessam): Remove agent_id from args once access_token includes agent_id</span>
+        <span class="c1">#  as well.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_agent_id</span> <span class="o">=</span> <span class="n">agent_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_userstorage_url</span> <span class="o">=</span> <span class="n">userstorage_url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">query</span><span class="o">.</span><span class="n">access_token</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">})</span>
+
+    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">UserStorageType</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_userstorage_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_agent_id</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">to_json</span><span class="p">(</span><span class="n">value</span><span class="p">)})</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">UserStorageType</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_userstorage_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_agent_id</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">from_json</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
+        <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">HTTPError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Key </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> not found&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+
+    <span class="k">def</span> <span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_userstorage_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_agent_id</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">HTTPError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="fm">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_userstorage_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_agent_id</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">HTTPError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Key </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> not found&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+
+    <span class="k">def</span> <span class="nf">_get_all_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_userstorage_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_agent_id</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">value</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()]</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_all_keys</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_all_keys</span><span class="p">())</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="fixieai.agents.user_storage.from_json" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">from_json</span><span class="p">(</span><span class="n">json_dump</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Deserializes a UserStorageType from a JSON string.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>fixieai/agents/user_storage.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">from_json</span><span class="p">(</span><span class="n">json_dump</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">UserStorageType</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Deserializes a UserStorageType from a JSON string.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">from_json_type</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_dump</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="fixieai.agents.user_storage.from_json_type" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">from_json_type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Decodes a JsonType to UserStorageType.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>fixieai/agents/user_storage.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">from_json_type</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">JsonType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">UserStorageType</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Decodes a JsonType to UserStorageType.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">_is_bytes_encoded_json_dict</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>  <span class="c1"># type: ignore</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">from_json_type</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">obj</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">from_json_type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">obj</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="fixieai.agents.user_storage.to_json" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">to_json</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Serialize a UserStorageType to a JSON string.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>fixieai/agents/user_storage.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">96</span>
+<span class="normal">97</span>
+<span class="normal">98</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">UserStorageType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Serialize a UserStorageType to a JSON string.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">to_json_type</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="fixieai.agents.user_storage.to_json_type" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">to_json_type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Encodes a UserStorageType to JsonType.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>fixieai/agents/user_storage.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">to_json_type</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">UserStorageType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">JsonType</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Encodes a UserStorageType to JsonType.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;_bytes_ascii&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;ASCII&quot;</span><span class="p">)}</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">to_json_type</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">obj</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">to_json_type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">obj</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+<a id="fixieai.agents.utils"></a>
+  <div class="doc doc-contents first">
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="fixieai.agents.utils.FewshotLinePattern" class="doc doc-heading">
+        <code>FewshotLinePattern</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+      <p class="doc doc-class-bases">
+        Bases: <code>enum.<span title="enum.Enum">Enum</span></code></p>
+
+
+
+        <details class="quote">
+          <summary>Source code in <code>fixieai/agents/utils.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">FewshotLinePattern</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">QUERY</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^Q:&quot;</span><span class="p">)</span>
+    <span class="n">AGENT_SAYS</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^Agent\[\w+] says:&quot;</span><span class="p">)</span>
+    <span class="n">FUNC_SAYS</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^Func\[\w+] says:&quot;</span><span class="p">)</span>
+    <span class="n">ASK_AGENT</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^Ask Agent\[\w+]:&quot;</span><span class="p">)</span>
+    <span class="n">ASK_FUNC</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^Ask Func\[\w+]:&quot;</span><span class="p">)</span>
+    <span class="n">RESPONSE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^A:&quot;</span><span class="p">)</span>
+    <span class="n">NO_PATTERN</span><span class="p">:</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">pattern</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">line</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;FewshotLinePattern&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the matched PromptPattern for a given line.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Cannot get the pattern for a multi-line text. Patterns must be &quot;</span>
+                <span class="s2">&quot;extracted one line at a time.&quot;</span>
+            <span class="p">)</span>
+        <span class="n">pattern_matches</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">prompt_pattern</span>
+            <span class="k">for</span> <span class="n">prompt_pattern</span> <span class="ow">in</span> <span class="bp">cls</span>
+            <span class="k">if</span> <span class="n">prompt_pattern</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">NO_PATTERN</span> <span class="ow">and</span> <span class="n">prompt_pattern</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pattern_matches</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;More than one pattern (</span><span class="si">{</span><span class="n">pattern_matches</span><span class="si">}</span><span class="s2">) matched the line </span><span class="si">{</span><span class="n">line</span><span class="si">!r}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">pattern_matches</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pattern_matches</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">NO_PATTERN</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="fixieai.agents.utils.FewshotLinePattern.pattern" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">pattern</span><span class="p">(</span><span class="n">line</span><span class="p">)</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns the matched PromptPattern for a given line.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>fixieai/agents/utils.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">pattern</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">line</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;FewshotLinePattern&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the matched PromptPattern for a given line.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Cannot get the pattern for a multi-line text. Patterns must be &quot;</span>
+            <span class="s2">&quot;extracted one line at a time.&quot;</span>
+        <span class="p">)</span>
+    <span class="n">pattern_matches</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">prompt_pattern</span>
+        <span class="k">for</span> <span class="n">prompt_pattern</span> <span class="ow">in</span> <span class="bp">cls</span>
+        <span class="k">if</span> <span class="n">prompt_pattern</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">NO_PATTERN</span> <span class="ow">and</span> <span class="n">prompt_pattern</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pattern_matches</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;More than one pattern (</span><span class="si">{</span><span class="n">pattern_matches</span><span class="si">}</span><span class="s2">) matched the line </span><span class="si">{</span><span class="n">line</span><span class="si">!r}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">pattern_matches</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pattern_matches</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">NO_PATTERN</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="fixieai.agents.utils.strip_prompt_lines" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">strip_prompt_lines</span><span class="p">(</span><span class="n">agent_metadata</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Strips all prompt lines.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>fixieai/agents/utils.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">strip_prompt_lines</span><span class="p">(</span><span class="n">agent_metadata</span><span class="p">:</span> <span class="n">code_shot</span><span class="o">.</span><span class="n">AgentMetadata</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Strips all prompt lines.&quot;&quot;&quot;</span>
+    <span class="n">agent_metadata</span><span class="o">.</span><span class="n">base_prompt</span> <span class="o">=</span> <span class="n">_strip_all_lines</span><span class="p">(</span><span class="n">agent_metadata</span><span class="o">.</span><span class="n">base_prompt</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">fewshot</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">agent_metadata</span><span class="o">.</span><span class="n">few_shots</span><span class="p">):</span>
+        <span class="n">agent_metadata</span><span class="o">.</span><span class="n">few_shots</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">_strip_all_lines</span><span class="p">(</span><span class="n">fewshot</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="fixieai.agents.utils.validate_code_shot_agent" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">validate_code_shot_agent</span><span class="p">(</span><span class="n">agent_metadata</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>A client-side validation of few_shots and agent.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>fixieai/agents/utils.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">validate_code_shot_agent</span><span class="p">(</span><span class="n">agent_metadata</span><span class="p">:</span> <span class="n">code_shot</span><span class="o">.</span><span class="n">AgentMetadata</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A client-side validation of few_shots and agent.&quot;&quot;&quot;</span>
+    <span class="n">_validate_base_prompt</span><span class="p">(</span><span class="n">agent_metadata</span><span class="o">.</span><span class="n">base_prompt</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">fewshot</span> <span class="ow">in</span> <span class="n">agent_metadata</span><span class="o">.</span><span class="n">few_shots</span><span class="p">:</span>
+        <span class="n">_validate_few_shot_prompt</span><span class="p">(</span><span class="n">fewshot</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="fixieai.agents.utils.validate_registered_pyfunc" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">validate_registered_pyfunc</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">agent</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Validates <code>func</code>'s signature to be a valid CodeShot Func.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>func</code></td>
+          <td>
+                <code><span title="typing.Callable">Callable</span></code>
+          </td>
+          <td><p>The function to be validated.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>agent</code></td>
+          <td>
+                <code><a class="autorefs autorefs-internal" title="fixieai.agents.code_shot" href="#fixieai.agents.code_shot">code_shot</a>.<a class="autorefs autorefs-internal" title="fixieai.agents.code_shot.CodeShotAgent" href="#fixieai.agents.code_shot.CodeShotAgent">CodeShotAgent</a></code>
+          </td>
+          <td><p>The CodeShotAgent that this func is going to be registered for.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>fixieai/agents/utils.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span>
+<span class="normal">95</span>
+<span class="normal">96</span>
+<span class="normal">97</span>
+<span class="normal">98</span>
+<span class="normal">99</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">validate_registered_pyfunc</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">agent</span><span class="p">:</span> <span class="n">code_shot</span><span class="o">.</span><span class="n">CodeShotAgent</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Validates `func`&#39;s signature to be a valid CodeShot Func.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        func: The function to be validated.</span>
+<span class="sd">        agent: The CodeShotAgent that this func is going to be registered for.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Delayed import to avoid circular dependency</span>
+    <span class="kn">from</span> <span class="nn">fixieai.agents</span> <span class="kn">import</span> <span class="n">api</span>
+    <span class="kn">from</span> <span class="nn">fixieai.agents</span> <span class="kn">import</span> <span class="n">oauth</span>
+    <span class="kn">from</span> <span class="nn">fixieai.agents</span> <span class="kn">import</span> <span class="n">user_storage</span>
+
+    <span class="n">ALLOWED_FUNC_PARAMS</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="n">api</span><span class="o">.</span><span class="n">Message</span><span class="p">,</span>
+        <span class="s2">&quot;user_storage&quot;</span><span class="p">:</span> <span class="n">user_storage</span><span class="o">.</span><span class="n">UserStorage</span><span class="p">,</span>
+        <span class="s2">&quot;oauth_handler&quot;</span><span class="p">:</span> <span class="n">oauth</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Validate that func is a function type.</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isfunction</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Registered function </span><span class="si">{</span><span class="n">func</span><span class="si">!r}</span><span class="s2"> is not a function, but a </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">func</span><span class="p">)</span><span class="si">!r}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+    <span class="n">signature</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="n">func_name</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="n">signature</span><span class="o">.</span><span class="n">parameters</span>
+
+    <span class="c1"># Validate that there are not var args (*args or **kwargs).</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span>
+        <span class="n">param</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="p">(</span><span class="n">param</span><span class="o">.</span><span class="n">VAR_KEYWORD</span><span class="p">,</span> <span class="n">param</span><span class="o">.</span><span class="n">VAR_POSITIONAL</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+    <span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Registered function </span><span class="si">{</span><span class="n">func_name</span><span class="si">}</span><span class="s2"> cannot accept variable args: </span><span class="si">{</span><span class="n">params</span><span class="si">!r}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Validate that all argument names are known.</span>
+    <span class="n">unknown_params</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">ALLOWED_FUNC_PARAMS</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">unknown_params</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Registered function </span><span class="si">{</span><span class="n">func_name</span><span class="si">}</span><span class="s2"> gets unknown arguments </span><span class="si">{</span><span class="n">unknown_params</span><span class="si">}</span><span class="s2">. &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;List of allowed Func arguments are </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">ALLOWED_FUNC_PARAMS</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Check the type annotations match what&#39;s expected, if func is type annotated.</span>
+    <span class="n">type_hints</span> <span class="o">=</span> <span class="n">get_type_hints</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">arg_name</span><span class="p">,</span> <span class="n">arg_type</span> <span class="ow">in</span> <span class="n">ALLOWED_FUNC_PARAMS</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">arg_name</span> <span class="ow">in</span> <span class="n">type_hints</span> <span class="ow">and</span> <span class="n">type_hints</span><span class="p">[</span><span class="n">arg_name</span><span class="p">]</span> <span class="o">!=</span> <span class="n">arg_type</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Expected argument </span><span class="si">{</span><span class="n">arg_name</span><span class="si">!r}</span><span class="s2"> to be of type </span><span class="si">{</span><span class="n">arg_type</span><span class="si">!r}</span><span class="s2">, but it&#39;s &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;typed as </span><span class="si">{</span><span class="n">type_hints</span><span class="p">[</span><span class="n">arg_name</span><span class="p">]</span><span class="si">!r}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;return&quot;</span> <span class="ow">in</span> <span class="n">type_hints</span> <span class="ow">and</span> <span class="n">type_hints</span><span class="p">[</span><span class="s2">&quot;return&quot;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span>
+        <span class="n">api</span><span class="o">.</span><span class="n">AgentResponse</span><span class="p">,</span>
+        <span class="n">api</span><span class="o">.</span><span class="n">Message</span><span class="p">,</span>
+        <span class="nb">str</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Expected registered function to return an AgentResponse, a Message, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;or str but it returns </span><span class="si">{</span><span class="n">type_hints</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Some custom checks.</span>
+    <span class="k">if</span> <span class="s2">&quot;oauth_handler&quot;</span> <span class="ow">in</span> <span class="n">params</span> <span class="ow">and</span> <span class="n">agent</span><span class="o">.</span><span class="n">oauth_params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Function </span><span class="si">{</span><span class="n">func_name</span><span class="si">}</span><span class="s2"> who accepts &#39;oauth_handler&#39; as an argument cannot &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;be registered with agent </span><span class="si">{</span><span class="n">agent</span><span class="si">!r}</span><span class="s2"> who hasn&#39;t set &#39;oauth_params&#39; in its &quot;</span>
+            <span class="s2">&quot;constructor.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">func</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = ".."</script>
+    
+    <script src="../js/base.js"></script>
+    <script src="../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>
